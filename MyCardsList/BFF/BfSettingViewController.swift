@@ -1,64 +1,68 @@
 //
-//  SettingViewController.swift
+//  BfSettingViewController.swift
 //  MyCardsList
 //
-//  Created by 山岸善将 on 2021/07/03.
+//  Created by 山岸善将 on 2021/07/16.
 //
 
 import UIKit
 
-class SettingViewController: UIViewController,UINavigationControllerDelegate {
+class BfSettingViewController: UIViewController, UINavigationControllerDelegate {
     
-    @IBOutlet weak var NewCardsName: UITextField!
-    @IBOutlet weak var NewCardsImage: UIImageView!
-    @IBOutlet weak var NewCardsDescription: UITextView!
-    @IBOutlet weak var NewCardsTel: UITextField!
+    @IBOutlet weak var NewBfName: UITextField!
+    @IBOutlet weak var NewBfImage: UIImageView!
+    @IBOutlet weak var NewBfDescription: UITextView!
+    @IBOutlet weak var NewBfTel: UITextField!
     var selectedImageData: Data?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.NewCardsName.delegate = self
-        self.NewCardsDescription.delegate = self
-        self.NewCardsTel.delegate = self
-        self.NewCardsTel.keyboardType = UIKeyboardType.numberPad
+        self.NewBfName.delegate = self
+        self.NewBfDescription.delegate = self
+        self.NewBfTel.delegate = self
+        self.NewBfTel.keyboardType = UIKeyboardType.numberPad
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.NewCardsTel.isFirstResponder) {
-            self.NewCardsTel.resignFirstResponder()
+        if (self.NewBfTel.isFirstResponder) {
+            self.NewBfTel.resignFirstResponder()
+        }
+        if (self.NewBfDescription.isFirstResponder) {
+            self.NewBfDescription.resignFirstResponder()
         }
     }
-    @IBAction func NewCardsButton(_ sender: Any) {
-        guard let text = NewCardsName.text, !text.isEmpty else { return }
-        guard let text = NewCardsTel.text, !text.isEmpty else { return }
-        guard let text = NewCardsDescription.text, !text.isEmpty else { return }
-        name.append(NewCardsName.text!)
-        phoneNumber.append(NewCardsTel.text!)
-        photos.append(selectedImageData!)
-        description1.append(NewCardsDescription.text!)
-        print(name)
-        print(phoneNumber)
-        print(photos)
-        print(description1)
-        NewCardsName.text! = ""
-        NewCardsTel.text! = ""
-        NewCardsDescription.text! = ""
-        UserDefaults.standard.set(name, forKey: "listPass")
-        UserDefaults.standard.set(phoneNumber, forKey: "listPass2")
-        UserDefaults.standard.set(photos, forKey: "listPass3")
-        UserDefaults.standard.set(description1, forKey: "listPass4")
+    @IBAction func NewBfButton(_ sender: Any) {
+        guard let text = NewBfName.text, !text.isEmpty else { return }
+        guard let text = NewBfTel.text, !text.isEmpty else { return }
+        guard let text = NewBfDescription.text, !text.isEmpty else { return }
+        BfName.append(NewBfName.text!)
+        BfPhone.append(NewBfTel.text!)
+        BfPhotos.append(selectedImageData!)
+        BfDescription.append(NewBfDescription.text!)
+        print(BfName)
+        print(BfPhone)
+        print(BfPhotos)
+        print(BfDescription)
+        NewBfName.text! = ""
+        NewBfTel.text! = ""
+        NewBfDescription.text! = ""
+        UserDefaults.standard.set(BfName, forKey: "Bf1")
+        UserDefaults.standard.set(BfPhone, forKey: "Bf2")
+        UserDefaults.standard.set(BfPhotos, forKey: "Bf3")
+        UserDefaults.standard.set(BfDescription, forKey: "Bf4")
         self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
-extension SettingViewController: UIImagePickerControllerDelegate {
+extension BfSettingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        NewCardsImage.image = selectedImage
+        NewBfImage.image = selectedImage
         selectedImageData = selectedImage.pngData()
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func ImageButtonAction(_ sender: Any) {
+    @IBAction func BfImageButton(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler: { (action) in
@@ -80,12 +84,12 @@ extension SettingViewController: UIImagePickerControllerDelegate {
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
-    
+        
         present(alertController, animated: true, completion: nil)
     }
 }
 
-extension SettingViewController {
+extension BfSettingViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
         guard let presentationController = presentationController else {
@@ -95,20 +99,20 @@ extension SettingViewController {
     }
 }
 
-extension SettingViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ NewCardsName: UITextField) -> Bool {
-        NewCardsName.resignFirstResponder()
+extension BfSettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ NewBfName: UITextField) -> Bool {
+        NewBfName.resignFirstResponder()
         return true
     }
-    func textFieldShouldReturn2(_ NewCardsTel: UITextField) -> Bool {
-        NewCardsTel.resignFirstResponder()
+    func textFieldShouldReturn2(_ NewBfTel: UITextField) -> Bool {
+        NewBfTel.resignFirstResponder()
         return true
     }
 }
 
-extension SettingViewController: UITextViewDelegate {
-    func textFieldShouldReturn3(_ NewCardsDescription: UITextView) -> Bool {
-        NewCardsDescription.resignFirstResponder()
+extension BfSettingViewController: UITextViewDelegate {
+    func textFieldShouldReturn3(_ NewBfDescription: UITextView) -> Bool {
+        NewBfDescription.resignFirstResponder()
         return true
     }
 }
