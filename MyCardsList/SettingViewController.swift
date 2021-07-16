@@ -7,16 +7,13 @@
 
 import UIKit
 
-class SettingViewController: UIViewController,UINavigationControllerDelegate,UITextViewDelegate {
+class SettingViewController: UIViewController,UINavigationControllerDelegate {
     
     @IBOutlet weak var NewCardsName: UITextField!
     @IBOutlet weak var NewCardsImage: UIImageView!
     @IBOutlet weak var NewCardsDescription: UITextView!
     @IBOutlet weak var NewCardsTel: UITextField!
-    
-    var resultHandler: ((String) -> Void)?
-    var resultHandler2: ((String) -> Void)?
-    var resultHandler3: ((String) -> Void)?
+    var selectedImageData: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +21,6 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIT
         self.NewCardsName.delegate = self
         self.NewCardsDescription.delegate = self
         self.NewCardsTel.delegate = self
-//        電話番号入力を数字だけにする
         self.NewCardsTel.keyboardType = UIKeyboardType.numberPad
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -32,13 +28,35 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIT
             self.NewCardsTel.resignFirstResponder()
         }
     }
-    func textFieldShouldReturn(_ NewCardsName: UITextField) -> Bool {
-        NewCardsName.resignFirstResponder()
-        return true
+    @IBAction func NewCardsButton(_ sender: Any) {
+        guard let text = NewCardsName.text, !text.isEmpty else { return }
+        guard let text = NewCardsTel.text, !text.isEmpty else { return }
+        guard let text = NewCardsDescription.text, !text.isEmpty else { return }
+        name.append(NewCardsName.text!)
+        phoneNumber.append(NewCardsTel.text!)
+        photos.append(selectedImageData!)
+        description1.append(NewCardsDescription.text!)
+        print(name)
+        print(phoneNumber)
+        print(photos)
+        print(description1)
+        NewCardsName.text! = ""
+        NewCardsTel.text! = ""
+        NewCardsDescription.text! = ""
+        UserDefaults.standard.set(name, forKey: "listPass")
+        UserDefaults.standard.set(phoneNumber, forKey: "listPass2")
+        UserDefaults.standard.set(photos, forKey: "listPass3")
+        UserDefaults.standard.set(description1, forKey: "listPass4")
+        self.dismiss(animated: true, completion: nil)
     }
-    func textFieldShouldReturn2(_ NewCardsTel: UITextField) -> Bool {
-        NewCardsTel.resignFirstResponder()
-        return true
+}
+
+extension SettingViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        NewCardsImage.image = selectedImage
+        selectedImageData = selectedImage.pngData()
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func ImageButtonAction(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
@@ -65,41 +83,6 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate,UIT
     
         present(alertController, animated: true, completion: nil)
     }
-    @IBAction func NewCardsButton(_ sender: Any) {
-        guard let text = NewCardsName.text, !text.isEmpty else { return }
-        guard let text = NewCardsTel.text, !text.isEmpty else { return }
-        name.append(NewCardsName.text!)
-        phoneNumber.append(NewCardsTel.text!)
-        print(name)
-        print(phoneNumber)
-        NewCardsName.text! = ""
-        NewCardsTel.text! = ""
-        UserDefaults.standard.set(name, forKey: "listPass")
-        UserDefaults.standard.set(phoneNumber, forKey: "listPass2")
-//        guard let text = self.NewCardsName.text else { return }
-//        if let handler = self.resultHandler {
-//            handler(text)
-//        }
-//        guard let text = self.NewCardsDescription.text else { return }
-//        if let handler = self.resultHandler2 {
-//            handler(text)
-//        }
-//        guard let text = self.NewCardsTel.text else { return }
-//        if let handler = self.resultHandler3 {
-//            handler(text)
-//        }
-        self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension SettingViewController: UIImagePickerControllerDelegate {
-    //    カメラ撮影、フォトライブラリーの選択後に呼び出される
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    //        撮影、ライブラリーから選択した画像をNewCardsImageに配置
-            NewCardsImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-    //        モーダルビューを閉じる
-            dismiss(animated: true, completion: nil)
-        }
 }
 
 extension SettingViewController {
@@ -113,4 +96,19 @@ extension SettingViewController {
 }
 
 extension SettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ NewCardsName: UITextField) -> Bool {
+        NewCardsName.resignFirstResponder()
+        return true
+    }
+    func textFieldShouldReturn2(_ NewCardsTel: UITextField) -> Bool {
+        NewCardsTel.resignFirstResponder()
+        return true
+    }
+}
+
+extension SettingViewController: UITextViewDelegate {
+    func textFieldShouldReturn3(_ NewCardsDescription: UITextView) -> Bool {
+        NewCardsDescription.resignFirstResponder()
+        return true
+    }
 }

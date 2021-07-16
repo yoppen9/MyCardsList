@@ -9,6 +9,8 @@ import UIKit
 
 var name: [String] = []
 var phoneNumber: [String] = []
+var photos: [Data] = []
+var description1: [String] = []
 
 class CardsViewController: UIViewController {
     
@@ -22,6 +24,12 @@ class CardsViewController: UIViewController {
         }
         if(UserDefaults.standard.array(forKey: "listPass2") != nil) {
             phoneNumber = UserDefaults.standard.array(forKey: "listPass2") as! [String]
+        }
+        if(UserDefaults.standard.array(forKey: "listPass3") != nil) {
+            photos = UserDefaults.standard.array(forKey: "listPass3") as! [Data]
+        }
+        if(UserDefaults.standard.array(forKey: "listPass4") != nil) {
+            description1 = UserDefaults.standard.array(forKey: "listPass4") as! [String]
         }
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
@@ -39,8 +47,12 @@ extension CardsViewController: UICollectionViewDataSource {
         let nameCell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardsImage", for: indexPath)
         let label = nameCell.contentView.viewWithTag(1) as! UILabel
         let label2 = nameCell.contentView.viewWithTag(2) as! UILabel
+        let image3 = nameCell.contentView.viewWithTag(3) as! UIImageView
+        let textView4 = nameCell.contentView.viewWithTag(4) as! UILabel
         label.text = name[indexPath.row]
         label2.text = phoneNumber[indexPath.row]
+        image3.image = UIImage(data: photos[indexPath.row])
+        textView4.text = description1[indexPath.row]
         return nameCell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
