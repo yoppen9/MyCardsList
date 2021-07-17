@@ -22,6 +22,14 @@ class BfSettingViewController: UIViewController, UINavigationControllerDelegate 
         self.NewBfDescription.delegate = self
         self.NewBfTel.delegate = self
         self.NewBfTel.keyboardType = UIKeyboardType.numberPad
+        NewBfDescription.layer.borderColor = UIColor.lightGray.cgColor
+        NewBfDescription.layer.borderWidth = 1.0
+        NewBfDescription.layer.cornerRadius = 8
+        NewBfDescription.layer.masksToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (self.NewBfTel.isFirstResponder) {
@@ -52,7 +60,31 @@ class BfSettingViewController: UIViewController, UINavigationControllerDelegate 
         UserDefaults.standard.set(BfDescription, forKey: "Bf4")
         self.dismiss(animated: true, completion: nil)
     }
-    
+    @objc func keyboardWillShow(notificaation: NSNotification) {
+        if !NewBfTel.isFirstResponder {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+                self.view.frame.origin.y = -110
+            }
+        }
+    }
+    @objc func keyboardWillShow2(notificaation: NSNotification) {
+        if !NewBfDescription.isFirstResponder {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+                self.view.frame.origin.y = -90
+            }
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
 }
 
 extension BfSettingViewController: UIImagePickerControllerDelegate {

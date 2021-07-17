@@ -13,6 +13,12 @@
 		AF22CC5A268F54150051C583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC58268F54150051C583 /* Main.storyboard */; };
 		AF22CC5C268F54190051C583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC5B268F54190051C583 /* Assets.xcassets */; };
 		AF22CC5F268F54190051C583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC5D268F54190051C583 /* LaunchScreen.storyboard */; };
+		AF22CC6F2690810E0051C583 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC6E2690810E0051C583 /* CardsViewController.swift */; };
+		AF22CC712690922A0051C583 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC702690922A0051C583 /* SettingViewController.swift */; };
+		AF22CD0226A1808F0051C583 /* BffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0126A1808F0051C583 /* BffViewController.swift */; };
+		AF22CD0726A181CF0051C583 /* BfSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0626A181CF0051C583 /* BfSettingViewController.swift */; };
+		AF22CD2E26A2BCAA0051C583 /* LocalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD2D26A2BCAA0051C583 /* LocalViewController.swift */; };
+		AF22CD3026A2BCCB0051C583 /* LocalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD2F26A2BCCB0051C583 /* LocalSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		AF22CC5B268F54190051C583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF22CC5E268F54190051C583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF22CC60268F54190051C583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF22CC6E2690810E0051C583 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		AF22CC702690922A0051C583 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		AF22CD0126A1808F0051C583 /* BffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BffViewController.swift; sourceTree = "<group>"; };
+		AF22CD0626A181CF0051C583 /* BfSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BfSettingViewController.swift; sourceTree = "<group>"; };
+		AF22CD2D26A2BCAA0051C583 /* LocalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalViewController.swift; sourceTree = "<group>"; };
+		AF22CD2F26A2BCCB0051C583 /* LocalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				AF22CC51268F54150051C583 /* MyCardsList */,
-				AF22CC50268F54150051C583 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +62,7 @@
 				AF22CC4F268F54150051C583 /* MyCardsList.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		AF22CC51268F54150051C583 /* MyCardsList */ = {
@@ -58,13 +70,52 @@
 			children = (
 				AF22CC52268F54150051C583 /* AppDelegate.swift */,
 				AF22CC54268F54150051C583 /* SceneDelegate.swift */,
-				AF22CC56268F54150051C583 /* ViewController.swift */,
 				AF22CC58268F54150051C583 /* Main.storyboard */,
-				AF22CC5B268F54190051C583 /* Assets.xcassets */,
 				AF22CC5D268F54190051C583 /* LaunchScreen.storyboard */,
+				AF22CC5B268F54190051C583 /* Assets.xcassets */,
 				AF22CC60268F54190051C583 /* Info.plist */,
+				AF22CC50268F54150051C583 /* Products */,
+				AF22CD0526A181770051C583 /* tableVIewController */,
+				AF22CD0426A181110051C583 /* Family */,
+				AF22CD0326A180CC0051C583 /* BFF */,
+				AF22CD2C26A2BC110051C583 /* Local */,
 			);
 			path = MyCardsList;
+			sourceTree = "<group>";
+		};
+		AF22CD0326A180CC0051C583 /* BFF */ = {
+			isa = PBXGroup;
+			children = (
+				AF22CD0126A1808F0051C583 /* BffViewController.swift */,
+				AF22CD0626A181CF0051C583 /* BfSettingViewController.swift */,
+			);
+			path = BFF;
+			sourceTree = "<group>";
+		};
+		AF22CD0426A181110051C583 /* Family */ = {
+			isa = PBXGroup;
+			children = (
+				AF22CC6E2690810E0051C583 /* CardsViewController.swift */,
+				AF22CC702690922A0051C583 /* SettingViewController.swift */,
+			);
+			path = Family;
+			sourceTree = "<group>";
+		};
+		AF22CD0526A181770051C583 /* tableVIewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF22CC56268F54150051C583 /* ViewController.swift */,
+			);
+			path = tableVIewController;
+			sourceTree = "<group>";
+		};
+		AF22CD2C26A2BC110051C583 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				AF22CD2D26A2BCAA0051C583 /* LocalViewController.swift */,
+				AF22CD2F26A2BCCB0051C583 /* LocalSettingViewController.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +188,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF22CD3026A2BCCB0051C583 /* LocalSettingViewController.swift in Sources */,
+				AF22CC712690922A0051C583 /* SettingViewController.swift in Sources */,
+				AF22CD0726A181CF0051C583 /* BfSettingViewController.swift in Sources */,
+				AF22CC6F2690810E0051C583 /* CardsViewController.swift in Sources */,
 				AF22CC57268F54150051C583 /* ViewController.swift in Sources */,
 				AF22CC53268F54150051C583 /* AppDelegate.swift in Sources */,
 				AF22CC55268F54150051C583 /* SceneDelegate.swift in Sources */,
+				AF22CD2E26A2BCAA0051C583 /* LocalViewController.swift in Sources */,
+				AF22CD0226A1808F0051C583 /* BffViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

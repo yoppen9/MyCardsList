@@ -22,6 +22,14 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate {
         self.NewCardsDescription.delegate = self
         self.NewCardsTel.delegate = self
         self.NewCardsTel.keyboardType = UIKeyboardType.numberPad
+        NewCardsDescription.layer.borderColor = UIColor.lightGray.cgColor
+        NewCardsDescription.layer.borderWidth = 1.0
+        NewCardsDescription.layer.cornerRadius = 8
+        NewCardsDescription.layer.masksToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (self.NewCardsTel.isFirstResponder) {
@@ -51,6 +59,31 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate {
         UserDefaults.standard.set(photos, forKey: "listPass3")
         UserDefaults.standard.set(description1, forKey: "listPass4")
         self.dismiss(animated: true, completion: nil)
+    }
+    @objc func keyboardWillShow(notificaation: NSNotification) {
+        if !NewCardsTel.isFirstResponder {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+                self.view.frame.origin.y = -110
+            }
+        }
+    }
+    @objc func keyboardWillShow2(notificaation: NSNotification) {
+        if !NewCardsDescription.isFirstResponder {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+                self.view.frame.origin.y = -90
+            }
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }
 
