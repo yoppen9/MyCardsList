@@ -1,68 +1,68 @@
 //
-//  BfSettingViewController.swift
+//  CompanySettingViewController.swift
 //  MyCardsList
 //
-//  Created by 山岸善将 on 2021/07/16.
+//  Created by 山岸善将 on 2021/07/18.
 //
 
 import UIKit
 
-class BfSettingViewController: UIViewController, UINavigationControllerDelegate {
+class CompanySettingViewController: UIViewController, UINavigationControllerDelegate {
     
-    @IBOutlet weak var NewBfName: UITextField!
-    @IBOutlet weak var NewBfImage: UIImageView!
-    @IBOutlet weak var NewBfDescription: UITextView!
-    @IBOutlet weak var NewBfTel: UITextField!
+    @IBOutlet weak var NewCompanyName: UITextField!
+    @IBOutlet weak var NewCompanyImage: UIImageView!
+    @IBOutlet weak var NewCompanyDescription: UITextView!
+    @IBOutlet weak var NewCompanyTel: UITextField!
     var selectedImageData: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.NewBfName.delegate = self
-        self.NewBfDescription.delegate = self
-        self.NewBfTel.delegate = self
-        self.NewBfTel.keyboardType = UIKeyboardType.numberPad
-        NewBfDescription.layer.borderColor = UIColor.lightGray.cgColor
-        NewBfDescription.layer.borderWidth = 1.0
-        NewBfDescription.layer.cornerRadius = 8
-        NewBfDescription.layer.masksToBounds = true
+        self.NewCompanyName.delegate = self
+        self.NewCompanyDescription.delegate = self
+        self.NewCompanyTel.delegate = self
+        self.NewCompanyTel.keyboardType = UIKeyboardType.numberPad
+        NewCompanyDescription.layer.borderColor = UIColor.lightGray.cgColor
+        NewCompanyDescription.layer.borderWidth = 1.0
+        NewCompanyDescription.layer.cornerRadius = 8
+        NewCompanyDescription.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.NewBfTel.isFirstResponder) {
-            self.NewBfTel.resignFirstResponder()
+        if (self.NewCompanyTel.isFirstResponder) {
+            self.NewCompanyTel.resignFirstResponder()
         }
-        if (self.NewBfDescription.isFirstResponder) {
-            self.NewBfDescription.resignFirstResponder()
+        if (self.NewCompanyDescription.isFirstResponder) {
+            self.NewCompanyDescription.resignFirstResponder()
         }
     }
-    @IBAction func NewBfButton(_ sender: Any) {
-        guard let text = NewBfName.text, !text.isEmpty else { return }
-//        guard let text = NewBfTel.text, !text.isEmpty else { return }
-//        guard let text = NewBfDescription.text, !text.isEmpty else { return }
+    @IBAction func NewCompanyButton(_ sender: Any) {
+        guard let text = NewCompanyName.text, !text.isEmpty else { return }
+//        guard let text = NewCompanyTel.text, !text.isEmpty else { return }
+//        guard let text = NewCompanyDescription.text, !text.isEmpty else { return }
 //        guard let text = selectedImageData, !text.isEmpty else { return }
-        BfName.append(NewBfName.text!)
-        BfPhone.append(NewBfTel.text!)
-        BfPhotos.append(selectedImageData!)
-        BfDescription.append(NewBfDescription.text!)
-        print(BfName)
-        print(BfPhone)
-        print(BfPhotos)
-        print(BfDescription)
-        NewBfName.text! = ""
-        NewBfTel.text! = ""
-        NewBfDescription.text! = ""
-        UserDefaults.standard.set(BfName, forKey: "Bf1")
-        UserDefaults.standard.set(BfPhone, forKey: "Bf2")
-        UserDefaults.standard.set(BfPhotos, forKey: "Bf3")
-        UserDefaults.standard.set(BfDescription, forKey: "Bf4")
+        CompanyName.append(NewCompanyName.text!)
+        CompanyPhone.append(NewCompanyTel.text!)
+        CompanyPhotos.append(selectedImageData!)
+        CompanyDescription.append(NewCompanyDescription.text!)
+        print(CompanyName)
+        print(CompanyPhone)
+        print(CompanyPhotos)
+        print(CompanyDescription)
+        NewCompanyName.text! = ""
+        NewCompanyTel.text! = ""
+        NewCompanyDescription.text! = ""
+        UserDefaults.standard.set(CompanyName, forKey: "Company1")
+        UserDefaults.standard.set(CompanyPhone, forKey: "Company2")
+        UserDefaults.standard.set(CompanyPhotos, forKey: "Company3")
+        UserDefaults.standard.set(CompanyDescription, forKey: "Company4")
         self.dismiss(animated: true, completion: nil)
     }
     @objc func keyboardWillShow(notificaation: NSNotification) {
-        if !NewBfTel.isFirstResponder {
+        if !NewCompanyTel.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -72,7 +72,7 @@ class BfSettingViewController: UIViewController, UINavigationControllerDelegate 
         }
     }
     @objc func keyboardWillShow2(notificaation: NSNotification) {
-        if !NewBfDescription.isFirstResponder {
+        if !NewCompanyDescription.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -88,14 +88,14 @@ class BfSettingViewController: UIViewController, UINavigationControllerDelegate 
     }
 }
 
-extension BfSettingViewController: UIImagePickerControllerDelegate {
+extension CompanySettingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        NewBfImage.image = selectedImage
+        NewCompanyImage.image = selectedImage
         selectedImageData = selectedImage.pngData()
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func BfImageButton(_ sender: Any) {
+    @IBAction func CompanyImageButton(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler: { (action) in
@@ -122,7 +122,7 @@ extension BfSettingViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension BfSettingViewController {
+extension CompanySettingViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
         guard let presentationController = presentationController else {
@@ -132,20 +132,20 @@ extension BfSettingViewController {
     }
 }
 
-extension BfSettingViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ NewBfName: UITextField) -> Bool {
-        NewBfName.resignFirstResponder()
+extension CompanySettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ NewCompanyName: UITextField) -> Bool {
+        NewCompanyName.resignFirstResponder()
         return true
     }
-    func textFieldShouldReturn2(_ NewBfTel: UITextField) -> Bool {
-        NewBfTel.resignFirstResponder()
+    func textFieldShouldReturn2(_ NewCompanyTel: UITextField) -> Bool {
+        NewCompanyTel.resignFirstResponder()
         return true
     }
 }
 
-extension BfSettingViewController: UITextViewDelegate {
-    func textFieldShouldReturn3(_ NewBfDescription: UITextView) -> Bool {
-        NewBfDescription.resignFirstResponder()
+extension CompanySettingViewController: UITextViewDelegate {
+    func textFieldShouldReturn3(_ NewCompanyDescription: UITextView) -> Bool {
+        NewCompanyDescription.resignFirstResponder()
         return true
     }
 }

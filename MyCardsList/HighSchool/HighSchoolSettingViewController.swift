@@ -1,68 +1,68 @@
 //
-//  BfSettingViewController.swift
+//  HighSchoolSettingViewController.swift
 //  MyCardsList
 //
-//  Created by 山岸善将 on 2021/07/16.
+//  Created by 山岸善将 on 2021/07/17.
 //
 
 import UIKit
 
-class BfSettingViewController: UIViewController, UINavigationControllerDelegate {
+class HighSchoolSettingViewController: UIViewController, UINavigationControllerDelegate {
     
-    @IBOutlet weak var NewBfName: UITextField!
-    @IBOutlet weak var NewBfImage: UIImageView!
-    @IBOutlet weak var NewBfDescription: UITextView!
-    @IBOutlet weak var NewBfTel: UITextField!
+    @IBOutlet weak var NewHighSchoolName: UITextField!
+    @IBOutlet weak var NewHighSchoolImage: UIImageView!
+    @IBOutlet weak var NewHighSchoolDescription: UITextView!
+    @IBOutlet weak var NewHighSchoolTel: UITextField!
     var selectedImageData: Data?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.NewBfName.delegate = self
-        self.NewBfDescription.delegate = self
-        self.NewBfTel.delegate = self
-        self.NewBfTel.keyboardType = UIKeyboardType.numberPad
-        NewBfDescription.layer.borderColor = UIColor.lightGray.cgColor
-        NewBfDescription.layer.borderWidth = 1.0
-        NewBfDescription.layer.cornerRadius = 8
-        NewBfDescription.layer.masksToBounds = true
+        self.NewHighSchoolName.delegate = self
+        self.NewHighSchoolDescription.delegate = self
+        self.NewHighSchoolTel.delegate = self
+        self.NewHighSchoolTel.keyboardType = UIKeyboardType.numberPad
+        NewHighSchoolDescription.layer.borderColor = UIColor.lightGray.cgColor
+        NewHighSchoolDescription.layer.borderWidth = 1.0
+        NewHighSchoolDescription.layer.cornerRadius = 8
+        NewHighSchoolDescription.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.NewBfTel.isFirstResponder) {
-            self.NewBfTel.resignFirstResponder()
+        if (self.NewHighSchoolTel.isFirstResponder) {
+            self.NewHighSchoolTel.resignFirstResponder()
         }
-        if (self.NewBfDescription.isFirstResponder) {
-            self.NewBfDescription.resignFirstResponder()
+        if (self.NewHighSchoolDescription.isFirstResponder) {
+            self.NewHighSchoolDescription.resignFirstResponder()
         }
     }
-    @IBAction func NewBfButton(_ sender: Any) {
-        guard let text = NewBfName.text, !text.isEmpty else { return }
-//        guard let text = NewBfTel.text, !text.isEmpty else { return }
-//        guard let text = NewBfDescription.text, !text.isEmpty else { return }
+    @IBAction func NewHighSchoolButton(_ sender: Any) {
+        guard let text = NewHighSchoolName.text, !text.isEmpty else { return }
+//        guard let text = NewHighSchoolTel.text, !text.isEmpty else { return }
+//        guard let text = NewHighSchoolDescription.text, !text.isEmpty else { return }
 //        guard let text = selectedImageData, !text.isEmpty else { return }
-        BfName.append(NewBfName.text!)
-        BfPhone.append(NewBfTel.text!)
-        BfPhotos.append(selectedImageData!)
-        BfDescription.append(NewBfDescription.text!)
-        print(BfName)
-        print(BfPhone)
-        print(BfPhotos)
-        print(BfDescription)
-        NewBfName.text! = ""
-        NewBfTel.text! = ""
-        NewBfDescription.text! = ""
-        UserDefaults.standard.set(BfName, forKey: "Bf1")
-        UserDefaults.standard.set(BfPhone, forKey: "Bf2")
-        UserDefaults.standard.set(BfPhotos, forKey: "Bf3")
-        UserDefaults.standard.set(BfDescription, forKey: "Bf4")
+        HighSchoolName.append(NewHighSchoolName.text!)
+        HighSchoolPhone.append(NewHighSchoolTel.text!)
+        HighSchoolPhotos.append(selectedImageData!)
+        HighSchoolDescription.append(NewHighSchoolDescription.text!)
+        print(HighSchoolName)
+        print(HighSchoolPhone)
+        print(HighSchoolPhotos)
+        print(HighSchoolDescription)
+        NewHighSchoolName.text! = ""
+        NewHighSchoolTel.text! = ""
+        NewHighSchoolDescription.text! = ""
+        UserDefaults.standard.set(HighSchoolName, forKey: "HighSchool1")
+        UserDefaults.standard.set(HighSchoolPhone, forKey: "HighSchool2")
+        UserDefaults.standard.set(HighSchoolPhotos, forKey: "HighSchool3")
+        UserDefaults.standard.set(HighSchoolDescription, forKey: "HighSchool4")
         self.dismiss(animated: true, completion: nil)
     }
     @objc func keyboardWillShow(notificaation: NSNotification) {
-        if !NewBfTel.isFirstResponder {
+        if !NewHighSchoolTel.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -72,7 +72,7 @@ class BfSettingViewController: UIViewController, UINavigationControllerDelegate 
         }
     }
     @objc func keyboardWillShow2(notificaation: NSNotification) {
-        if !NewBfDescription.isFirstResponder {
+        if !NewHighSchoolDescription.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -88,14 +88,14 @@ class BfSettingViewController: UIViewController, UINavigationControllerDelegate 
     }
 }
 
-extension BfSettingViewController: UIImagePickerControllerDelegate {
+extension HighSchoolSettingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        NewBfImage.image = selectedImage
+        NewHighSchoolImage.image = selectedImage
         selectedImageData = selectedImage.pngData()
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func BfImageButton(_ sender: Any) {
+    @IBAction func HighSchoolImageButton(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler: { (action) in
@@ -122,7 +122,7 @@ extension BfSettingViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension BfSettingViewController {
+extension HighSchoolSettingViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
         guard let presentationController = presentationController else {
@@ -132,20 +132,20 @@ extension BfSettingViewController {
     }
 }
 
-extension BfSettingViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ NewBfName: UITextField) -> Bool {
-        NewBfName.resignFirstResponder()
+extension HighSchoolSettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ NewHighSchoolName: UITextField) -> Bool {
+        NewHighSchoolName.resignFirstResponder()
         return true
     }
-    func textFieldShouldReturn2(_ NewBfTel: UITextField) -> Bool {
-        NewBfTel.resignFirstResponder()
+    func textFieldShouldReturn2(_ NewHighSchoolTel: UITextField) -> Bool {
+        NewHighSchoolTel.resignFirstResponder()
         return true
     }
 }
 
-extension BfSettingViewController: UITextViewDelegate {
-    func textFieldShouldReturn3(_ NewBfDescription: UITextView) -> Bool {
-        NewBfDescription.resignFirstResponder()
+extension HighSchoolSettingViewController: UITextViewDelegate {
+    func textFieldShouldReturn3(_ NewHighSchoolDescription: UITextView) -> Bool {
+        NewHighSchoolDescription.resignFirstResponder()
         return true
     }
 }

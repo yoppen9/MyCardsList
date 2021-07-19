@@ -41,8 +41,9 @@ class SettingViewController: UIViewController,UINavigationControllerDelegate {
     }
     @IBAction func NewCardsButton(_ sender: Any) {
         guard let text = NewCardsName.text, !text.isEmpty else { return }
-        guard let text = NewCardsTel.text, !text.isEmpty else { return }
-        guard let text = NewCardsDescription.text, !text.isEmpty else { return }
+//        guard let text = NewCardsTel.text, !text.isEmpty else { return }
+//        guard let text = NewCardsDescription.text, !text.isEmpty else { return }
+//        guard let text = selectedImageData, !text.isEmpty else { return }
         name.append(NewCardsName.text!)
         phoneNumber.append(NewCardsTel.text!)
         photos.append(selectedImageData!)
