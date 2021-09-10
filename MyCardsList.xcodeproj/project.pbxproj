@@ -3,39 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3630C0B69424235130A17AEE /* Pods_MyCardsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1681E40158D2DA617D016EB /* Pods_MyCardsList.framework */; };
+		AF060EED26E72C7A00DA2BCD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF060EEB26E72C7A00DA2BCD /* CollectionViewCell.swift */; };
+		AF060EEE26E72C7A00DA2BCD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF060EEC26E72C7A00DA2BCD /* CollectionViewCell.xib */; };
+		AF060EF126EAEBCE00DA2BCD /* TitleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF060EF026EAEBCE00DA2BCD /* TitleCollectionViewController.swift */; };
+		AF155F2226A70683005BDCC8 /* TitleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF155F2126A70683005BDCC8 /* TitleListModel.swift */; };
 		AF22CC53268F54150051C583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC52268F54150051C583 /* AppDelegate.swift */; };
 		AF22CC55268F54150051C583 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC54268F54150051C583 /* SceneDelegate.swift */; };
-		AF22CC57268F54150051C583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC56268F54150051C583 /* ViewController.swift */; };
 		AF22CC5A268F54150051C583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC58268F54150051C583 /* Main.storyboard */; };
 		AF22CC5C268F54190051C583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC5B268F54190051C583 /* Assets.xcassets */; };
 		AF22CC5F268F54190051C583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC5D268F54190051C583 /* LaunchScreen.storyboard */; };
-		AF22CC6F2690810E0051C583 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC6E2690810E0051C583 /* CardsViewController.swift */; };
-		AF22CC712690922A0051C583 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC702690922A0051C583 /* SettingViewController.swift */; };
-		AF22CD0226A1808F0051C583 /* BffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0126A1808F0051C583 /* BffViewController.swift */; };
-		AF22CD0726A181CF0051C583 /* BfSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0626A181CF0051C583 /* BfSettingViewController.swift */; };
-		AF22CD2E26A2BCAA0051C583 /* LocalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD2D26A2BCAA0051C583 /* LocalViewController.swift */; };
-		AF22CD3026A2BCCB0051C583 /* LocalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD2F26A2BCCB0051C583 /* LocalSettingViewController.swift */; };
+		AF22CD0226A1808F0051C583 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0126A1808F0051C583 /* CardListViewController.swift */; };
+		AF22CD0726A181CF0051C583 /* ChildSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD37BA6E74817FDE96F369C9 /* Pods-MyCardsList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCardsList.debug.xcconfig"; path = "Target Support Files/Pods-MyCardsList/Pods-MyCardsList.debug.xcconfig"; sourceTree = "<group>"; };
+		AF060EEB26E72C7A00DA2BCD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		AF060EEC26E72C7A00DA2BCD /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		AF060EF026EAEBCE00DA2BCD /* TitleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewController.swift; sourceTree = "<group>"; };
+		AF155F2126A70683005BDCC8 /* TitleListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListModel.swift; sourceTree = "<group>"; };
 		AF22CC4F268F54150051C583 /* MyCardsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCardsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF22CC52268F54150051C583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF22CC54268F54150051C583 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AF22CC56268F54150051C583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF22CC59268F54150051C583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF22CC5B268F54190051C583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF22CC5E268F54190051C583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF22CC60268F54190051C583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF22CC6E2690810E0051C583 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
-		AF22CC702690922A0051C583 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		AF22CD0126A1808F0051C583 /* BffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BffViewController.swift; sourceTree = "<group>"; };
-		AF22CD0626A181CF0051C583 /* BfSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BfSettingViewController.swift; sourceTree = "<group>"; };
-		AF22CD2D26A2BCAA0051C583 /* LocalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalViewController.swift; sourceTree = "<group>"; };
-		AF22CD2F26A2BCCB0051C583 /* LocalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSettingViewController.swift; sourceTree = "<group>"; };
+		AF22CD0126A1808F0051C583 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingViewController.swift; sourceTree = "<group>"; };
+		D3314AE4365F3833342D424E /* Pods-MyCardsList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCardsList.release.xcconfig"; path = "Target Support Files/Pods-MyCardsList/Pods-MyCardsList.release.xcconfig"; sourceTree = "<group>"; };
+		E1681E40158D2DA617D016EB /* Pods_MyCardsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCardsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,16 +45,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3630C0B69424235130A17AEE /* Pods_MyCardsList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4490EBC398C555B72C4BBD05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1681E40158D2DA617D016EB /* Pods_MyCardsList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E285A7238E720944BD488BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD37BA6E74817FDE96F369C9 /* Pods-MyCardsList.debug.xcconfig */,
+				D3314AE4365F3833342D424E /* Pods-MyCardsList.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF155F2026A70502005BDCC8 /* ChildViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */,
+			);
+			path = ChildViewController;
+			sourceTree = "<group>";
+		};
 		AF22CC46268F54150051C583 = {
 			isa = PBXGroup;
 			children = (
 				AF22CC51268F54150051C583 /* MyCardsList */,
+				7E285A7238E720944BD488BC /* Pods */,
+				4490EBC398C555B72C4BBD05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,47 +105,30 @@
 				AF22CC5B268F54190051C583 /* Assets.xcassets */,
 				AF22CC60268F54190051C583 /* Info.plist */,
 				AF22CC50268F54150051C583 /* Products */,
-				AF22CD0526A181770051C583 /* tableVIewController */,
-				AF22CD0426A181110051C583 /* Family */,
-				AF22CD0326A180CC0051C583 /* BFF */,
-				AF22CD2C26A2BC110051C583 /* Local */,
+				AF22CD0526A181770051C583 /* TitleList */,
+				AF22CD0326A180CC0051C583 /* CardList */,
 			);
 			path = MyCardsList;
 			sourceTree = "<group>";
 		};
-		AF22CD0326A180CC0051C583 /* BFF */ = {
+		AF22CD0326A180CC0051C583 /* CardList */ = {
 			isa = PBXGroup;
 			children = (
-				AF22CD0126A1808F0051C583 /* BffViewController.swift */,
-				AF22CD0626A181CF0051C583 /* BfSettingViewController.swift */,
+				AF22CD0126A1808F0051C583 /* CardListViewController.swift */,
+				AF060EEB26E72C7A00DA2BCD /* CollectionViewCell.swift */,
+				AF060EEC26E72C7A00DA2BCD /* CollectionViewCell.xib */,
+				AF155F2026A70502005BDCC8 /* ChildViewController */,
 			);
-			path = BFF;
+			path = CardList;
 			sourceTree = "<group>";
 		};
-		AF22CD0426A181110051C583 /* Family */ = {
+		AF22CD0526A181770051C583 /* TitleList */ = {
 			isa = PBXGroup;
 			children = (
-				AF22CC6E2690810E0051C583 /* CardsViewController.swift */,
-				AF22CC702690922A0051C583 /* SettingViewController.swift */,
+				AF060EF026EAEBCE00DA2BCD /* TitleCollectionViewController.swift */,
+				AF155F2126A70683005BDCC8 /* TitleListModel.swift */,
 			);
-			path = Family;
-			sourceTree = "<group>";
-		};
-		AF22CD0526A181770051C583 /* tableVIewController */ = {
-			isa = PBXGroup;
-			children = (
-				AF22CC56268F54150051C583 /* ViewController.swift */,
-			);
-			path = tableVIewController;
-			sourceTree = "<group>";
-		};
-		AF22CD2C26A2BC110051C583 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				AF22CD2D26A2BCAA0051C583 /* LocalViewController.swift */,
-				AF22CD2F26A2BCCB0051C583 /* LocalSettingViewController.swift */,
-			);
-			path = Local;
+			path = TitleList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF22CC63268F54190051C583 /* Build configuration list for PBXNativeTarget "MyCardsList" */;
 			buildPhases = (
+				422E42B33EE2084C7622A1C1 /* [CP] Check Pods Manifest.lock */,
 				AF22CC4B268F54150051C583 /* Sources */,
 				AF22CC4C268F54150051C583 /* Frameworks */,
 				AF22CC4D268F54150051C583 /* Resources */,
+				A260951A6E4B9AE7BB67A028 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,26 +192,67 @@
 			files = (
 				AF22CC5F268F54190051C583 /* LaunchScreen.storyboard in Resources */,
 				AF22CC5C268F54190051C583 /* Assets.xcassets in Resources */,
+				AF060EEE26E72C7A00DA2BCD /* CollectionViewCell.xib in Resources */,
 				AF22CC5A268F54150051C583 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		422E42B33EE2084C7622A1C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyCardsList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A260951A6E4B9AE7BB67A028 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyCardsList/Pods-MyCardsList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyCardsList/Pods-MyCardsList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyCardsList/Pods-MyCardsList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF22CC4B268F54150051C583 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF22CD3026A2BCCB0051C583 /* LocalSettingViewController.swift in Sources */,
-				AF22CC712690922A0051C583 /* SettingViewController.swift in Sources */,
-				AF22CD0726A181CF0051C583 /* BfSettingViewController.swift in Sources */,
-				AF22CC6F2690810E0051C583 /* CardsViewController.swift in Sources */,
-				AF22CC57268F54150051C583 /* ViewController.swift in Sources */,
+				AF22CD0726A181CF0051C583 /* ChildSettingViewController.swift in Sources */,
 				AF22CC53268F54150051C583 /* AppDelegate.swift in Sources */,
+				AF060EF126EAEBCE00DA2BCD /* TitleCollectionViewController.swift in Sources */,
+				AF060EED26E72C7A00DA2BCD /* CollectionViewCell.swift in Sources */,
 				AF22CC55268F54150051C583 /* SceneDelegate.swift in Sources */,
-				AF22CD2E26A2BCAA0051C583 /* LocalViewController.swift in Sources */,
-				AF22CD0226A1808F0051C583 /* BffViewController.swift in Sources */,
+				AF155F2226A70683005BDCC8 /* TitleListModel.swift in Sources */,
+				AF22CD0226A1808F0051C583 /* CardListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +396,7 @@
 		};
 		AF22CC64268F54190051C583 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD37BA6E74817FDE96F369C9 /* Pods-MyCardsList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -359,6 +416,7 @@
 		};
 		AF22CC65268F54190051C583 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3314AE4365F3833342D424E /* Pods-MyCardsList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

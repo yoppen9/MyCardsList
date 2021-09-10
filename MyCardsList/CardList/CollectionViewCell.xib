@@ -3,7 +3,9 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,17 +39,50 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGf-NR-F5R">
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="w6Q-JQ-moC">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX2-Bp-zHW">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="deleteButtonDidTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="FJd-BL-To2"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="PX2-Bp-zHW" secondAttribute="trailing" id="PSe-Ok-IzO"/>
+                                <constraint firstItem="PX2-Bp-zHW" firstAttribute="leading" secondItem="w6Q-JQ-moC" secondAttribute="leading" id="Vrj-Cd-vGV"/>
+                                <constraint firstAttribute="bottom" secondItem="PX2-Bp-zHW" secondAttribute="bottom" id="cv1-Hh-HRJ"/>
+                                <constraint firstItem="PX2-Bp-zHW" firstAttribute="top" secondItem="w6Q-JQ-moC" secondAttribute="top" id="gpG-0D-Kdz"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="GL0-9R-cYn"/>
+                            <constraint firstAttribute="width" constant="40" id="Heo-IG-kKR"/>
+                        </constraints>
+                        <blurEffect style="extraLight"/>
+                    </visualEffectView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="DtI-WG-Rud" secondAttribute="trailing" id="0BP-jY-2Ua"/>
                 <constraint firstItem="Kz1-yN-wlj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2b7-GB-9Np"/>
+                <constraint firstItem="yGf-NR-F5R" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="4U0-C3-IhM"/>
                 <constraint firstItem="Kz1-yN-wlj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Gg-lG-wGS"/>
                 <constraint firstItem="bhI-6w-Hbh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BLk-g4-sVn"/>
                 <constraint firstAttribute="trailing" secondItem="Kz1-yN-wlj" secondAttribute="trailing" id="Q9h-3D-LXy"/>
                 <constraint firstItem="DtI-WG-Rud" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XGC-6H-10g"/>
                 <constraint firstAttribute="trailing" secondItem="bhI-6w-Hbh" secondAttribute="trailing" id="aCd-G2-k0r"/>
+                <constraint firstItem="yGf-NR-F5R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="aRR-iF-Xu8"/>
                 <constraint firstItem="DtI-WG-Rud" firstAttribute="top" secondItem="bhI-6w-Hbh" secondAttribute="bottom" constant="10" id="hSQ-cc-Vbl"/>
                 <constraint firstAttribute="bottom" secondItem="DtI-WG-Rud" secondAttribute="bottom" constant="30" id="my6-nd-SK0"/>
                 <constraint firstItem="bhI-6w-Hbh" firstAttribute="top" secondItem="Kz1-yN-wlj" secondAttribute="bottom" constant="10" id="yEq-hZ-x6G"/>
@@ -57,8 +92,15 @@
                 <outlet property="CardsImageCell" destination="Kz1-yN-wlj" id="Ghm-H7-jHY"/>
                 <outlet property="CardsName" destination="bhI-6w-Hbh" id="sbN-Rk-OfW"/>
                 <outlet property="CardsTelephoneNumber" destination="DtI-WG-Rud" id="4dh-wN-fWe"/>
+                <outlet property="deleteButtonBackgroundView" destination="yGf-NR-F5R" id="iDI-hl-kKL"/>
             </connections>
-            <point key="canvasLocation" x="-191.30434782608697" y="64.955357142857139"/>
+            <point key="canvasLocation" x="-157" y="65"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

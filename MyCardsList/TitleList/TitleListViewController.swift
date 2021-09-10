@@ -19,12 +19,12 @@ class TitleListViewController: UIViewController,UITableViewDelegate,UITableViewD
         myTableView.dataSource = self
         myTableView.delegate = self
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showBfCardsList" {
-            let nextVC = segue.destination as! CardListViewController
-            nextVC.model = model
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showBfCardsList" {
+//            let nextVC = segue.destination as! CardListViewController
+//            nextVC.model = model
+//        }
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.cardsList.count
     }
@@ -66,26 +66,6 @@ class TitleListViewController: UIViewController,UITableViewDelegate,UITableViewD
         default:
             return
         }
-//        セルの選択解除
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        switch indexPath.row {
-//        case 0:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        case 1:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        case 2:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        case 3:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        case 4:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        case 5:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        case 6:
-//            self.performSegue(withIdentifier: "showBfCardsList", sender: nil)
-//        default:
-//            break
-//        }
     }
 }
 

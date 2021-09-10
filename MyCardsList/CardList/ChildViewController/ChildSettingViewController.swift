@@ -19,104 +19,79 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.NewBfName.delegate = self
-//        self.NewBfDescription.delegate = self
         self.NewBfTel.delegate = self
         self.NewBfTel.keyboardType = UIKeyboardType.numberPad
-//        NewBfDescription.layer.borderColor = UIColor.lightGray.cgColor
-//        NewBfDescription.layer.borderWidth = 1.0
-//        NewBfDescription.layer.cornerRadius = 8
-//        NewBfDescription.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (self.NewBfTel.isFirstResponder) {
             self.NewBfTel.resignFirstResponder()
         }
-//        if (self.NewBfDescription.isFirstResponder) {
-//            self.NewBfDescription.resignFirstResponder()
-//        }
     }
     @IBAction func NewBfButton(_ sender: Any) {
         guard let text = NewBfName.text, !text.isEmpty,
               let text1 = NewBfTel.text, !text1.isEmpty,
-//              let text2 = NewBfDescription.text, !text2.isEmpty,
               let text3 = selectedImageData, !text3.isEmpty else { return }
         switch self.model.section {
         case .familySection:
-            FamilyName.append(NewBfName.text!)
-            FamilyPhone.append(NewBfTel.text!)
-            FamilyPhotos.append(selectedImageData!)
-//            FamilyDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(FamilyName, forKey: "Family1")
-            UserDefaults.standard.set(FamilyPhone, forKey: "Family2")
-            UserDefaults.standard.set(FamilyPhotos, forKey: "Family3")
-            UserDefaults.standard.set(FamilyDescription, forKey: "Family4")
+            model.FamilyName.append(NewBfName.text!)
+            model.FamilyPhone.append(NewBfTel.text!)
+            model.FamilyPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.FamilyName, forKey: "Family1")
+            UserDefaults.standard.set(model.FamilyPhone, forKey: "Family2")
+            UserDefaults.standard.set(model.FamilyPhotos, forKey: "Family3")
         case .bfSection:
-            BfName.append(NewBfName.text!)
-            BfPhone.append(NewBfTel.text!)
-            BfPhotos.append(selectedImageData!)
-//            BfDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(BfName, forKey: "Bf1")
-            UserDefaults.standard.set(BfPhone, forKey: "Bf2")
-            UserDefaults.standard.set(BfPhotos, forKey: "Bf3")
-            UserDefaults.standard.set(BfDescription, forKey: "Bf4")
+            model.BfName.append(NewBfName.text!)
+            model.BfPhone.append(NewBfTel.text!)
+            model.BfPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.BfName, forKey: "Bf1")
+            UserDefaults.standard.set(model.BfPhone, forKey: "Bf2")
+            UserDefaults.standard.set(model.BfPhotos, forKey: "Bf3")
         case .localSection:
-            LocalName.append(NewBfName.text!)
-            LocalPhone.append(NewBfTel.text!)
-            LocalPhotos.append(selectedImageData!)
-//            LocalDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(LocalName, forKey: "Local1")
-            UserDefaults.standard.set(LocalPhone, forKey: "Local2")
-            UserDefaults.standard.set(LocalPhotos, forKey: "Local3")
-            UserDefaults.standard.set(LocalDescription, forKey: "Local4")
+            model.LocalName.append(NewBfName.text!)
+            model.LocalPhone.append(NewBfTel.text!)
+            model.LocalPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.LocalName, forKey: "Local1")
+            UserDefaults.standard.set(model.LocalPhone, forKey: "Local2")
+            UserDefaults.standard.set(model.LocalPhotos, forKey: "Local3")
         case .highSchoolSection:
-            HighSchoolName.append(NewBfName.text!)
-            HighSchoolPhone.append(NewBfTel.text!)
-            HighSchoolPhotos.append(selectedImageData!)
-//            HighSchoolDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(HighSchoolName, forKey: "HighSchool1")
-            UserDefaults.standard.set(HighSchoolPhone, forKey: "HighSchool2")
-            UserDefaults.standard.set(HighSchoolPhotos, forKey: "HighSchool3")
-            UserDefaults.standard.set(HighSchoolDescription, forKey: "HighSchool4")
+            model.HighSchoolName.append(NewBfName.text!)
+            model.HighSchoolPhone.append(NewBfTel.text!)
+            model.HighSchoolPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.HighSchoolName, forKey: "HighSchool1")
+            UserDefaults.standard.set(model.HighSchoolPhone, forKey: "HighSchool2")
+            UserDefaults.standard.set(model.HighSchoolPhotos, forKey: "HighSchool3")
         case .collegeSection:
-            CollegeName.append(NewBfName.text!)
-            CollegePhone.append(NewBfTel.text!)
-            CollegePhotos.append(selectedImageData!)
-//            CollegeDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(CollegeName, forKey: "College1")
-            UserDefaults.standard.set(CollegePhone, forKey: "College2")
-            UserDefaults.standard.set(CollegePhotos, forKey: "College3")
-            UserDefaults.standard.set(CollegeDescription, forKey: "College4")
+            model.CollegeName.append(NewBfName.text!)
+            model.CollegePhone.append(NewBfTel.text!)
+            model.CollegePhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.CollegeName, forKey: "College1")
+            UserDefaults.standard.set(model.CollegePhone, forKey: "College2")
+            UserDefaults.standard.set(model.CollegePhotos, forKey: "College3")
         case .companySection:
-            CompanyName.append(NewBfName.text!)
-            CompanyPhone.append(NewBfTel.text!)
-            CompanyPhotos.append(selectedImageData!)
-//            CompanyDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(CompanyName, forKey: "Company1")
-            UserDefaults.standard.set(CompanyPhone, forKey: "Company2")
-            UserDefaults.standard.set(CompanyPhotos, forKey: "Company3")
-            UserDefaults.standard.set(CompanyDescription, forKey: "Company4")
+            model.CompanyName.append(NewBfName.text!)
+            model.CompanyPhone.append(NewBfTel.text!)
+            model.CompanyPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.CompanyName, forKey: "Company1")
+            UserDefaults.standard.set(model.CompanyPhone, forKey: "Company2")
+            UserDefaults.standard.set(model.CompanyPhotos, forKey: "Company3")
         case .otherSection:
-            OtherName.append(NewBfName.text!)
-            OtherPhone.append(NewBfTel.text!)
-            OtherPhotos.append(selectedImageData!)
-//            OtherDescription.append(NewBfDescription.text!)
-            UserDefaults.standard.set(OtherName, forKey: "Other1")
-            UserDefaults.standard.set(OtherPhone, forKey: "Other2")
-            UserDefaults.standard.set(OtherPhotos, forKey: "Other3")
-            UserDefaults.standard.set(OtherDescription, forKey: "Other4")
+            model.OtherName.append(NewBfName.text!)
+            model.OtherPhone.append(NewBfTel.text!)
+            model.OtherPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.OtherName, forKey: "Other1")
+            UserDefaults.standard.set(model.OtherPhone, forKey: "Other2")
+            UserDefaults.standard.set(model.OtherPhotos, forKey: "Other3")
         }
-        print(BfName)
-        print(BfPhone)
-        print(BfPhotos)
-        print(BfDescription)
+        print(model.FamilyName)
+        print(model.FamilyPhone)
+        print(model.FamilyPhotos)
         self.dismiss(animated: true, completion: {
             self.NewBfName.text! = ""
             self.NewBfTel.text! = ""
-//            self.NewBfDescription.text! = ""
         })
     }
     @objc func keyboardWillShow(notificaation: NSNotification) {
@@ -125,20 +100,20 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         }
         if self.view.frame.origin.y == 0 {
             if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-                self.view.frame.origin.y = -110
+                self.view.frame.origin.y = -120
             }
         }
     }
-//    @objc func keyboardWillShow2(notificaation: NSNotification) {
-//        if !NewBfDescription.isFirstResponder {
-//            return
-//        }
-//        if self.view.frame.origin.y == 0 {
-//            if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-//                self.view.frame.origin.y = -90
-//            }
-//        }
-//    }
+    @objc func keyboardWillShow2(notificaation: NSNotification) {
+        if !NewBfName.isFirstResponder {
+            return
+        }
+        if self.view.frame.origin.y == 0 {
+            if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+                self.view.frame.origin.y = -90
+            }
+        }
+    }
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
@@ -197,13 +172,6 @@ extension ChildSettingViewController: UITextFieldDelegate {
     }
     func textFieldShouldReturn2(_ NewBfTel: UITextField) -> Bool {
         NewBfTel.resignFirstResponder()
-        return true
-    }
-}
-
-extension ChildSettingViewController: UITextViewDelegate {
-    func textFieldShouldReturn3(_ NewBfDescription: UITextView) -> Bool {
-        NewBfDescription.resignFirstResponder()
         return true
     }
 }
