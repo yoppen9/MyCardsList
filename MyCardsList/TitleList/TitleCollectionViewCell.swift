@@ -17,7 +17,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
                 let shrink = CABasicAnimation(keyPath: "transform.scale")
                 shrink.duration = 0.1
                 shrink.fromValue = 1.0
-                shrink.toValue = 0.95
+                shrink.toValue = 0.90
                 shrink.autoreverses = false
                 shrink.repeatCount = 1
                 shrink.isRemovedOnCompletion = false
@@ -26,8 +26,8 @@ class TitleCollectionViewCell: UICollectionViewCell {
             } else {
                 let shrink = CABasicAnimation(keyPath: "transform.scale")
                 shrink.duration = 0.2
-                shrink.fromValue = 1.0
-                shrink.toValue = 0.95
+                shrink.fromValue = 0.9
+                shrink.toValue = 1.0
                 shrink.autoreverses = false
                 shrink.repeatCount = 1
                 shrink.isRemovedOnCompletion = false

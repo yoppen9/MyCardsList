@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CropViewController
 
 class ChildSettingViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -21,6 +22,8 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         self.NewBfName.delegate = self
         self.NewBfTel.delegate = self
         self.NewBfTel.keyboardType = UIKeyboardType.numberPad
+        
+        NewBfImage.layer.cornerRadius = NewBfImage.frame.size.width * 0.1
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -121,13 +124,42 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
     }
 }
 
-extension ChildSettingViewController: UIImagePickerControllerDelegate {
+extension ChildSettingViewController: UIImagePickerControllerDelegate, CropViewControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        NewBfImage.image = selectedImage
-        selectedImageData = selectedImage.pngData()
+//        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+//        NewBfImage.image = selectedImage
+//        selectedImageData = selectedImage.pngData()
+//        dismiss(animated: true, completion: nil)
+        
+        guard let pickerImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        let cropController = CropViewController(image: pickerImage)
+//        NewBfImage.image = pickerImage
+        cropController.customAspectRatio = NewBfImage.frame.size
+        cropController.aspectRatioPickerButtonHidden = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.rotateButtonsHidden = true
+        cropController.cropView.cropBoxResizeEnabled = false
+//        cropController.delegate = self
+        selectedImageData = pickerImage.pngData()
         dismiss(animated: true, completion: nil)
+        
+        self.present(cropController, animated: true, completion: nil)
     }
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.NewBfImage.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        self.dismiss(animated: true, completion: nil)
+    }
+//    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+//        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+//    }
+//    func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+//        self.NewBfImage.image = image
+//        cropViewController.dismiss(animated: true, completion: nil)
+//    }
     @IBAction func BfImageButton(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -154,7 +186,6 @@ extension ChildSettingViewController: UIImagePickerControllerDelegate {
         present(alertController, animated: true, completion: nil)
     }
 }
-
 extension ChildSettingViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
@@ -164,7 +195,6 @@ extension ChildSettingViewController {
         presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }
-
 extension ChildSettingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ NewBfName: UITextField) -> Bool {
         NewBfName.resignFirstResponder()
@@ -175,3 +205,4 @@ extension ChildSettingViewController: UITextFieldDelegate {
         return true
     }
 }
+

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title Collection View Controller-->
+        <!--カテゴリー-->
         <scene sceneID="hlU-Jp-ApM">
             <objects>
                 <viewController id="UTH-37-la5" customClass="TitleCollectionViewController" customModule="MyCardsList" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,38 +28,12 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="ktD-h2-pY1">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellCell" id="ktD-h2-pY1">
                                         <rect key="frame" x="0.0" y="0.0" width="163" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="srZ-DP-ke6">
                                             <rect key="frame" x="0.0" y="0.0" width="163" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地元友達" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJs-yc-DKg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="ADd-Wr-pps"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="Shn-OV-wxU"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friend" translatesAutoresizingMaskIntoConstraints="NO" id="Paf-c3-j5E">
-                                                    <rect key="frame" x="63" y="75" width="100" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="FCb-Ir-BW8"/>
-                                                        <constraint firstAttribute="width" constant="100" id="WHJ-OP-T52"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="GJs-yc-DKg" firstAttribute="leading" secondItem="srZ-DP-ke6" secondAttribute="leading" id="Gij-e2-OW7"/>
-                                                <constraint firstAttribute="trailing" secondItem="Paf-c3-j5E" secondAttribute="trailing" id="cli-k7-rHK"/>
-                                                <constraint firstAttribute="bottom" secondItem="Paf-c3-j5E" secondAttribute="bottom" id="oce-Bl-MV6"/>
-                                                <constraint firstItem="GJs-yc-DKg" firstAttribute="top" secondItem="srZ-DP-ke6" secondAttribute="top" id="w6g-cX-ZJc"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="163" height="175"/>
                                     </collectionViewCell>
@@ -79,7 +53,9 @@
                             <constraint firstItem="fBn-BJ-iy2" firstAttribute="top" secondItem="AgE-il-KXG" secondAttribute="top" id="udq-Tq-pvj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BZh-8z-BiD"/>
+                    <navigationItem key="navigationItem" title="カテゴリー" id="BZh-8z-BiD">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="27S-Sp-pf0"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="listCollectionView" destination="fBn-BJ-iy2" id="dsV-hs-9v3"/>
                         <segue destination="bO0-po-DOL" kind="show" identifier="showCardsList" id="qoK-Hk-8eS"/>
@@ -163,22 +139,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-y3-IGR">
-                                <rect key="frame" x="156" y="250" width="102" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="画像追加">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="BfImageButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="5rY-oO-cSo"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話番号入力" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="O8D-aW-3wq">
                                 <rect key="frame" x="50" y="514" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="lqD-J0-H2S"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz8-ep-Bt8">
@@ -187,7 +153,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="NDh-m8-5bn"/>
                                     <constraint firstAttribute="height" constant="42" id="mWg-Rj-989"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
                                 <state key="normal" title="決定"/>
                                 <connections>
                                     <action selector="NewBfButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="E2o-jB-bAN"/>
@@ -198,15 +164,25 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="EHF-2d-M1R"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B1" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E1" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
                                 <rect key="frame" x="50" y="101" width="314" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="iPl-Lj-Dwj"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-y3-IGR">
+                                <rect key="frame" x="157" y="237.5" width="100" height="47"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
+                                <state key="normal" title="画像追加">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="BfImageButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="5rY-oO-cSo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9fV-MX-G9L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -216,10 +192,10 @@
                             <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="k1Q-xT-DQe" secondAttribute="trailing" constant="50" id="Msk-X5-wug"/>
                             <constraint firstItem="l5s-MH-UA0" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="OjW-xI-Eu0"/>
                             <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="O8D-aW-3wq" secondAttribute="trailing" constant="50" id="QGP-o6-z2u"/>
-                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="XNK-xO-ugd"/>
                             <constraint firstItem="l5s-MH-UA0" firstAttribute="top" secondItem="9fV-MX-G9L" secondAttribute="top" constant="101" id="YEM-pf-aFO"/>
-                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerY" secondItem="ag7-Jm-0Fe" secondAttribute="centerY" constant="-150" id="ZmH-y7-JtL"/>
+                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerY" secondItem="ag7-Jm-0Fe" secondAttribute="centerY" constant="-160" id="YOc-Fv-beK"/>
                             <constraint firstItem="O8D-aW-3wq" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="b29-0V-JWv"/>
+                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="eRv-oT-zW2"/>
                             <constraint firstItem="k1Q-xT-DQe" firstAttribute="top" secondItem="l5s-MH-UA0" secondAttribute="bottom" constant="39" id="jof-f3-xZo"/>
                             <constraint firstItem="Gz8-ep-Bt8" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="oK6-0U-uOP"/>
                             <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="l5s-MH-UA0" secondAttribute="trailing" constant="50" id="rXc-it-3d8"/>
@@ -244,6 +220,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Apd-vV-4GI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="labelColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -256,12 +235,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B1" width="1362" height="1362"/>
-        <image name="friend" width="736" height="700"/>
+        <image name="E1" width="940" height="942"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

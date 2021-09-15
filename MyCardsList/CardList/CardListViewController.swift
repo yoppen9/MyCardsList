@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardListViewController: UIViewController {
+class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -25,6 +25,7 @@ class CardListViewController: UIViewController {
     override func loadView() {
         super.loadView()
         self.title = model.sectionTitle
+        
         switch model.section {
        
         case .familySection:
@@ -143,7 +144,9 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
         case .familySection:
             label.text = model.FamilyName[indexPath.row]
             label2.text = model.FamilyPhone[indexPath.row]
-            image3.image = UIImage(data: model.FamilyPhotos[indexPath.row])
+            guard let uiImage = UIImage(data: model.FamilyPhotos[indexPath.row]), let cgImage = uiImage.cgImage else { return UICollectionViewCell() }
+            image3.image = UIImage(cgImage: cgImage, scale: 0, orientation: uiImage.imageOrientation)
+            
         case .bfSection:
             label.text = model.BfName[indexPath.row]
             label2.text = model.BfPhone[indexPath.row]

@@ -11,14 +11,19 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
     
     @IBOutlet weak var listCollectionView: UICollectionView!
     private let model: TitleListModel = TitleListModel()
-    let titleListImage = ["family","friend","local","friend","friend","company","company"]
+    let titleListImage = ["Quuu","Quuu","Quuu","Quuu","Quuu","Quuu","Quuu"]
     let titleListName = ["家族","親友","地元友達","高校友達","大学友達","会社","その他"]
+    
+    var listModel: TitleCollectionViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listCollectionView.dataSource = self
         listCollectionView.delegate = self
+        
+        let nib = UINib(nibName: "TitleCollectionViewCell", bundle: .main)
+        listCollectionView.register(nib, forCellWithReuseIdentifier: "listCell")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCardsList" {
@@ -34,10 +39,10 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: "listCell", for: indexPath)
         
-        let listName = listCell.contentView.viewWithTag(20) as! UILabel
+        let listName = listCell.contentView.viewWithTag(11) as! UILabel
         listName.text = titleListName[indexPath.row]
         
-        let imageView = listCell.contentView.viewWithTag(30) as! UIImageView
+        let imageView = listCell.contentView.viewWithTag(22) as! UIImageView
         let cellImage = UIImage(named: titleListImage[indexPath.row])
         imageView.image = cellImage
         
