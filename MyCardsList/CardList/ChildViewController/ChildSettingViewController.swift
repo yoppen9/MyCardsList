@@ -6,28 +6,48 @@
 //
 
 import UIKit
-import CropViewController
+//import CropViewController
 
 class ChildSettingViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var NewBfName: UITextField!
     @IBOutlet weak var NewBfImage: UIImageView!
     @IBOutlet weak var NewBfTel: UITextField!
-
+    
     var selectedImageData: Data?
     var model: TitleListModel!
+    var image:UIImage?
+    let datePicler = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.NewBfName.delegate = self
         self.NewBfTel.delegate = self
-        self.NewBfTel.keyboardType = UIKeyboardType.numberPad
+        self.NewBfTel.placeholder = "誕生日"
+        createDatePicker()
         
         NewBfImage.layer.cornerRadius = NewBfImage.frame.size.width * 0.1
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    func createDatePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: true)
+        NewBfTel.inputAccessoryView = toolbar
+        NewBfTel.inputView = datePicler
+        datePicler.preferredDatePickerStyle = .wheels
+        datePicler.datePickerMode = .date
+    }
+    @objc func donePressed() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        NewBfTel.text = formatter.string(from: datePicler.date)
+        self.view.endEditing(true)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (self.NewBfTel.isFirstResponder) {
@@ -89,9 +109,6 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
             UserDefaults.standard.set(model.OtherPhone, forKey: "Other2")
             UserDefaults.standard.set(model.OtherPhotos, forKey: "Other3")
         }
-        print(model.FamilyName)
-        print(model.FamilyPhone)
-        print(model.FamilyPhotos)
         self.dismiss(animated: true, completion: {
             self.NewBfName.text! = ""
             self.NewBfTel.text! = ""
@@ -103,7 +120,7 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         }
         if self.view.frame.origin.y == 0 {
             if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-                self.view.frame.origin.y = -120
+                self.view.frame.origin.y = -80
             }
         }
     }
@@ -113,7 +130,7 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         }
         if self.view.frame.origin.y == 0 {
             if ((notificaation.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-                self.view.frame.origin.y = -90
+                self.view.frame.origin.y = -60
             }
         }
     }
@@ -123,43 +140,27 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         }
     }
 }
-
-extension ChildSettingViewController: UIImagePickerControllerDelegate, CropViewControllerDelegate {
+extension ChildSettingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-//        NewBfImage.image = selectedImage
-//        selectedImageData = selectedImage.pngData()
-//        dismiss(animated: true, completion: nil)
-        
-        guard let pickerImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        let cropController = CropViewController(image: pickerImage)
-//        NewBfImage.image = pickerImage
-        cropController.customAspectRatio = NewBfImage.frame.size
-        cropController.aspectRatioPickerButtonHidden = true
-        cropController.resetAspectRatioEnabled = false
-        cropController.rotateButtonsHidden = true
-        cropController.cropView.cropBoxResizeEnabled = false
-//        cropController.delegate = self
-        selectedImageData = pickerImage.pngData()
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        let resizedImage = selectedImage.resizeImage(withPercentage: 0.7)
+        NewBfImage.image = resizedImage
+        selectedImageData = resizedImage?.jpegData(compressionQuality: 0.2)
         dismiss(animated: true, completion: nil)
         
-        self.present(cropController, animated: true, completion: nil)
-    }
-    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        self.NewBfImage.image = image
-        self.dismiss(animated: true, completion: nil)
+//        guard let pickerImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+//        selectedImageData = pickerImage.jpegData(compressionQuality: 1.0)
+//        let cropController = CropViewController(croppingStyle: .default, image: pickerImage)
+//        cropController.delegate = self
+//        cropController.customAspectRatio = NewBfImage.frame.size
+////        cropController.aspectRatioPickerButtonHidden = true
+////        cropController.resetAspectRatioEnabled = false
+////        cropController.rotateButtonsHidden = true
+//        cropController.cropView.cropBoxResizeEnabled = false
+//        dismiss(animated: true, completion: nil)
+//        self.present(cropController, animated: true, completion: nil)
     }
     
-    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
-        self.dismiss(animated: true, completion: nil)
-    }
-//    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-//        updateImageViewWithImage(image, fromCropViewController: cropViewController)
-//    }
-//    func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
-//        self.NewBfImage.image = image
-//        cropViewController.dismiss(animated: true, completion: nil)
-//    }
     @IBAction func BfImageButton(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -186,12 +187,20 @@ extension ChildSettingViewController: UIImagePickerControllerDelegate, CropViewC
         present(alertController, animated: true, completion: nil)
     }
 }
+//extension ChildSettingViewController: CropViewControllerDelegate {
+//    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+//        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+//    }
+//
+//    func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+//        self.NewBfImage.image = image
+//        cropViewController.dismiss(animated: true, completion: nil)
+//    }
+//}
 extension ChildSettingViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
-        guard let presentationController = presentationController else {
-            return
-        }
+        guard let presentationController = presentationController else { return }
         presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }
@@ -205,4 +214,11 @@ extension ChildSettingViewController: UITextFieldDelegate {
         return true
     }
 }
-
+extension UIImage {
+    func resizeImage(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
+        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
+            _ in draw(in: CGRect(origin: .zero, size: canvas))
+        }
+    }
+}

@@ -58,6 +58,7 @@ class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
             if(UserDefaults.standard.array(forKey: "Local3") != nil) {
                 model.LocalPhotos = UserDefaults.standard.array(forKey: "Local3") as! [Data]
             }
+            
         case .highSchoolSection:
             if(UserDefaults.standard.array(forKey: "HighSchool1") != nil) {
                 model.HighSchoolName = UserDefaults.standard.array(forKey: "HighSchool1") as! [String]
@@ -144,9 +145,9 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
         case .familySection:
             label.text = model.FamilyName[indexPath.row]
             label2.text = model.FamilyPhone[indexPath.row]
-            guard let uiImage = UIImage(data: model.FamilyPhotos[indexPath.row]), let cgImage = uiImage.cgImage else { return UICollectionViewCell() }
-            image3.image = UIImage(cgImage: cgImage, scale: 0, orientation: uiImage.imageOrientation)
-            
+            image3.image = UIImage(data: model.FamilyPhotos[indexPath.row])
+//            guard let uiImage = UIImage(data: model.FamilyPhotos[indexPath.row]), let cgImage = uiImage.cgImage else { return UICollectionViewCell() }
+//            image3.image = UIImage(cgImage: cgImage, scale: 0, orientation: uiImage.imageOrientation)
         case .bfSection:
             label.text = model.BfName[indexPath.row]
             label2.text = model.BfPhone[indexPath.row]
@@ -172,6 +173,12 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
             label2.text = model.OtherPhone[indexPath.row]
             image3.image = UIImage(data: model.OtherPhotos[indexPath.row])
         }
+        print(model.FamilyName)
+        print(model.FamilyPhone)
+        print(model.FamilyPhotos)
+        print(model.LocalName)
+        print(model.LocalPhone)
+        print(model.LocalPhotos)
         
         nameCell.delegate = self
         
@@ -294,6 +301,12 @@ extension CardListViewController: CollectionViewCellDelegate {
             UserDefaults.standard.set(model.OtherPhone, forKey: "Other2")
             UserDefaults.standard.set(model.OtherPhotos, forKey: "Other3")
         }
+        print(model.FamilyName)
+        print(model.FamilyPhone)
+        print(model.FamilyPhotos)
+        print(model.LocalName)
+        print(model.LocalPhone)
+        print(model.LocalPhotos)
         collectionView.reloadData()
     }
 }

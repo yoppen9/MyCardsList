@@ -7,6 +7,11 @@
 
 import UIKit
 
+var OtherName: [String] = []
+var OtherPhone: [String] = []
+var OtherDescription: [String] = []
+var OtherPhotos: [Data] = []
+
 class OtherViewController: UIViewController {
 
     override func viewDidLoad() {

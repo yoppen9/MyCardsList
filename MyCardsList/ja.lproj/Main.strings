@@ -1,0 +1,21 @@
+
+/* Class = "UIBarButtonItem"; title = "戻る"; ObjectID = "27S-Sp-pf0"; */
+"27S-Sp-pf0.title" = "戻る";
+
+/* Class = "UINavigationItem"; title = "カテゴリー"; ObjectID = "BZh-8z-BiD"; */
+"BZh-8z-BiD.title" = "カテゴリー";
+
+/* Class = "UIButton"; normalTitle = "決定"; ObjectID = "Gz8-ep-Bt8"; */
+"Gz8-ep-Bt8.normalTitle" = "決定";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "MZt-yS-aJV"; */
+"MZt-yS-aJV.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "電話番号入力"; ObjectID = "O8D-aW-3wq"; */
+"O8D-aW-3wq.placeholder" = "電話番号入力";
+
+/* Class = "UIButton"; normalTitle = "画像追加"; ObjectID = "Xa4-y3-IGR"; */
+"Xa4-y3-IGR.normalTitle" = "画像追加";
+
+/* Class = "UITextField"; placeholder = "名前入力"; ObjectID = "k1Q-xT-DQe"; */
+"k1Q-xT-DQe.placeholder" = "名前入力";

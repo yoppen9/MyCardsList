@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3630C0B69424235130A17AEE /* Pods_MyCardsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1681E40158D2DA617D016EB /* Pods_MyCardsList.framework */; };
 		AF060EED26E72C7A00DA2BCD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF060EEB26E72C7A00DA2BCD /* CollectionViewCell.swift */; };
 		AF060EEE26E72C7A00DA2BCD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF060EEC26E72C7A00DA2BCD /* CollectionViewCell.xib */; };
 		AF060EF126EAEBCE00DA2BCD /* TitleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF060EF026EAEBCE00DA2BCD /* TitleCollectionViewController.swift */; };
+		AF060EFA26EB48D900DA2BCD /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF060EF826EB48D900DA2BCD /* TitleCollectionViewCell.swift */; };
+		AF060EFB26EB48D900DA2BCD /* TitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF060EF926EB48D900DA2BCD /* TitleCollectionViewCell.xib */; };
 		AF155F2226A70683005BDCC8 /* TitleListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF155F2126A70683005BDCC8 /* TitleListModel.swift */; };
 		AF22CC53268F54150051C583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC52268F54150051C583 /* AppDelegate.swift */; };
 		AF22CC55268F54150051C583 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CC54268F54150051C583 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 		AF22CC5F268F54190051C583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC5D268F54190051C583 /* LaunchScreen.storyboard */; };
 		AF22CD0226A1808F0051C583 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0126A1808F0051C583 /* CardListViewController.swift */; };
 		AF22CD0726A181CF0051C583 /* ChildSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */; };
+		AF46CBFE26FB1A3D00DFBCAA /* Pods_MyCardsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF46CBFB26FB19DC00DFBCAA /* Pods_MyCardsList.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AF060EEB26E72C7A00DA2BCD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		AF060EEC26E72C7A00DA2BCD /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		AF060EF026EAEBCE00DA2BCD /* TitleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewController.swift; sourceTree = "<group>"; };
+		AF060EF826EB48D900DA2BCD /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF060EF926EB48D900DA2BCD /* TitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		AF155F2126A70683005BDCC8 /* TitleListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListModel.swift; sourceTree = "<group>"; };
 		AF22CC4F268F54150051C583 /* MyCardsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCardsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF22CC52268F54150051C583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +40,12 @@
 		AF22CC60268F54190051C583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF22CD0126A1808F0051C583 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingViewController.swift; sourceTree = "<group>"; };
+		AF46CBE626F996CC00DFBCAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		AF46CBE726F996CD00DFBCAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		AF46CBE826F9DABE00DFBCAA /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		AF46CBF226F9E39100DFBCAA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		AF46CBF426F9E41E00DFBCAA /* Pods_MyCardsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MyCardsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF46CBFB26FB19DC00DFBCAA /* Pods_MyCardsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MyCardsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3314AE4365F3833342D424E /* Pods-MyCardsList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCardsList.release.xcconfig"; path = "Target Support Files/Pods-MyCardsList/Pods-MyCardsList.release.xcconfig"; sourceTree = "<group>"; };
 		E1681E40158D2DA617D016EB /* Pods_MyCardsList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCardsList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -45,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3630C0B69424235130A17AEE /* Pods_MyCardsList.framework in Frameworks */,
+				AF46CBFE26FB1A3D00DFBCAA /* Pods_MyCardsList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +65,10 @@
 		4490EBC398C555B72C4BBD05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF46CBFB26FB19DC00DFBCAA /* Pods_MyCardsList.framework */,
+				AF46CBF426F9E41E00DFBCAA /* Pods_MyCardsList.framework */,
+				AF46CBF226F9E39100DFBCAA /* Accelerate.framework */,
+				AF46CBE826F9DABE00DFBCAA /* GoogleMobileAds.xcframework */,
 				E1681E40158D2DA617D016EB /* Pods_MyCardsList.framework */,
 			);
 			name = Frameworks;
@@ -126,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				AF060EF026EAEBCE00DA2BCD /* TitleCollectionViewController.swift */,
+				AF060EF826EB48D900DA2BCD /* TitleCollectionViewCell.swift */,
+				AF060EF926EB48D900DA2BCD /* TitleCollectionViewCell.xib */,
 				AF155F2126A70683005BDCC8 /* TitleListModel.swift */,
 			);
 			path = TitleList;
@@ -174,6 +190,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = AF22CC46268F54150051C583;
 			productRefGroup = AF22CC50268F54150051C583 /* Products */;
@@ -190,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF060EFB26EB48D900DA2BCD /* TitleCollectionViewCell.xib in Resources */,
 				AF22CC5F268F54190051C583 /* LaunchScreen.storyboard in Resources */,
 				AF22CC5C268F54190051C583 /* Assets.xcassets in Resources */,
 				AF060EEE26E72C7A00DA2BCD /* CollectionViewCell.xib in Resources */,
@@ -247,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF22CD0726A181CF0051C583 /* ChildSettingViewController.swift in Sources */,
+				AF060EFA26EB48D900DA2BCD /* TitleCollectionViewCell.swift in Sources */,
 				AF22CC53268F54150051C583 /* AppDelegate.swift in Sources */,
 				AF060EF126EAEBCE00DA2BCD /* TitleCollectionViewController.swift in Sources */,
 				AF060EED26E72C7A00DA2BCD /* CollectionViewCell.swift in Sources */,
@@ -263,6 +282,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AF22CC59268F54150051C583 /* Base */,
+				AF46CBE626F996CC00DFBCAA /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -271,6 +291,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AF22CC5E268F54190051C583 /* Base */,
+				AF46CBE726F996CD00DFBCAA /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -282,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -329,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -343,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -384,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -401,16 +424,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.3;
 				DEVELOPMENT_TEAM = ALZ6PAZHNW;
 				INFOPLIST_FILE = MyCardsList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = yoppen.MyCardsList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -421,16 +446,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.3;
 				DEVELOPMENT_TEAM = ALZ6PAZHNW;
 				INFOPLIST_FILE = MyCardsList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yoppen.MyCardsList;
+				MARKETING_VERSION = 1.1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = yoppen.4403;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

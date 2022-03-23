@@ -6,18 +6,27 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class TitleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class TitleCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GADBannerViewDelegate {
     
     @IBOutlet weak var listCollectionView: UICollectionView!
     private let model: TitleListModel = TitleListModel()
-    let titleListImage = ["Quuu","Quuu","Quuu","Quuu","Quuu","Quuu","Quuu"]
+    let titleListImage = ["family","bf","local","highSchool","college","company",""]
     let titleListName = ["家族","親友","地元友達","高校友達","大学友達","会社","その他"]
     
     var listModel: TitleCollectionViewCell!
+    var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+//        addBannerViewToView(bannerView)
+//        bannerView.adUnitID = "ca-app-pub-1642371430465959/4309452198"
+//        bannerView.rootViewController = self
+//        bannerView.load(GADRequest())
+//        bannerView.delegate = self
         
         listCollectionView.dataSource = self
         listCollectionView.delegate = self
@@ -25,6 +34,26 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
         let nib = UINib(nibName: "TitleCollectionViewCell", bundle: .main)
         listCollectionView.register(nib, forCellWithReuseIdentifier: "listCell")
     }
+//    func addBannerViewToView(_ bannerView: GADBannerView) {
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(bannerView)
+//        view.addConstraints(
+//            [NSLayoutConstraint(item: bannerView,
+//                                attribute: .bottom,
+//                                relatedBy: .equal,
+//                                toItem: bottomLayoutGuide,
+//                                attribute: .top,
+//                                multiplier: 1,
+//                                constant: 0),
+//             NSLayoutConstraint(item: bannerView,
+//                                attribute: .centerX,
+//                                relatedBy: .equal,
+//                                toItem: view,
+//                                attribute: .centerX,
+//                                multiplier: 1,
+//                                constant: 0)
+//            ])
+//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCardsList" {
             let nextVC = segue.destination as! CardListViewController

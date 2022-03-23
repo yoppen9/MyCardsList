@@ -139,7 +139,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話番号入力" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="O8D-aW-3wq">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="誕生日" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="O8D-aW-3wq">
                                 <rect key="frame" x="50" y="514" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="lqD-J0-H2S"/>
@@ -174,7 +174,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-y3-IGR">
-                                <rect key="frame" x="157" y="237.5" width="100" height="47"/>
+                                <rect key="frame" x="157" y="257.5" width="100" height="47"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
                                 <state key="normal" title="画像追加">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,7 +193,7 @@
                             <constraint firstItem="l5s-MH-UA0" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="OjW-xI-Eu0"/>
                             <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="O8D-aW-3wq" secondAttribute="trailing" constant="50" id="QGP-o6-z2u"/>
                             <constraint firstItem="l5s-MH-UA0" firstAttribute="top" secondItem="9fV-MX-G9L" secondAttribute="top" constant="101" id="YEM-pf-aFO"/>
-                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerY" secondItem="ag7-Jm-0Fe" secondAttribute="centerY" constant="-160" id="YOc-Fv-beK"/>
+                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerY" secondItem="ag7-Jm-0Fe" secondAttribute="centerY" constant="-140" id="YOc-Fv-beK"/>
                             <constraint firstItem="O8D-aW-3wq" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="b29-0V-JWv"/>
                             <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="eRv-oT-zW2"/>
                             <constraint firstItem="k1Q-xT-DQe" firstAttribute="top" secondItem="l5s-MH-UA0" secondAttribute="bottom" constant="39" id="jof-f3-xZo"/>
@@ -202,6 +202,7 @@
                             <constraint firstItem="Gz8-ep-Bt8" firstAttribute="top" secondItem="O8D-aW-3wq" secondAttribute="bottom" constant="50" id="tMW-cu-3ot"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="WJ0-Bu-D7x"/>
                     <connections>
                         <outlet property="NewBfImage" destination="l5s-MH-UA0" id="Ihb-XW-8sE"/>
                         <outlet property="NewBfName" destination="k1Q-xT-DQe" id="cBr-fi-FiV"/>
