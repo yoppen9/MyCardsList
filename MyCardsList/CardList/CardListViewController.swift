@@ -30,74 +30,74 @@ class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
        
         case .familySection:
             if(UserDefaults.standard.array(forKey: "Family1") != nil) {
-                model.FamilyName = UserDefaults.standard.array(forKey: "Family1") as! [String]
+                model.familyName = UserDefaults.standard.array(forKey: "Family1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Family2") != nil) {
-                model.FamilyPhone = UserDefaults.standard.array(forKey: "Family2") as! [String]
+                model.familyPhone = UserDefaults.standard.array(forKey: "Family2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Family3") != nil) {
-                model.FamilyPhotos = UserDefaults.standard.array(forKey: "Family3") as! [Data]
+                model.familyPhotos = UserDefaults.standard.array(forKey: "Family3") as! [Data]
             }
         case .bfSection:
             if(UserDefaults.standard.array(forKey: "Bf1") != nil) {
-                model.BfName = UserDefaults.standard.array(forKey: "Bf1") as! [String]
+                model.bfName = UserDefaults.standard.array(forKey: "Bf1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Bf2") != nil) {
-                model.BfPhone = UserDefaults.standard.array(forKey: "Bf2") as! [String]
+                model.bfPhone = UserDefaults.standard.array(forKey: "Bf2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Bf3") != nil) {
-                model.BfPhotos = UserDefaults.standard.array(forKey: "Bf3") as! [Data]
+                model.bfPhotos = UserDefaults.standard.array(forKey: "Bf3") as! [Data]
             }
         case .localSection:
             if(UserDefaults.standard.array(forKey: "Local1") != nil) {
-                model.LocalName = UserDefaults.standard.array(forKey: "Local1") as! [String]
+                model.localName = UserDefaults.standard.array(forKey: "Local1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Local2") != nil) {
-                model.LocalPhone = UserDefaults.standard.array(forKey: "Local2") as! [String]
+                model.localPhone = UserDefaults.standard.array(forKey: "Local2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Local3") != nil) {
-                model.LocalPhotos = UserDefaults.standard.array(forKey: "Local3") as! [Data]
+                model.localPhotos = UserDefaults.standard.array(forKey: "Local3") as! [Data]
             }
             
         case .highSchoolSection:
             if(UserDefaults.standard.array(forKey: "HighSchool1") != nil) {
-                model.HighSchoolName = UserDefaults.standard.array(forKey: "HighSchool1") as! [String]
+                model.highSchoolName = UserDefaults.standard.array(forKey: "HighSchool1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "HighSchool2") != nil) {
-                model.HighSchoolPhone = UserDefaults.standard.array(forKey: "HighSchool2") as! [String]
+                model.highSchoolPhone = UserDefaults.standard.array(forKey: "HighSchool2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "HighSchool3") != nil) {
-                model.HighSchoolPhotos = UserDefaults.standard.array(forKey: "HighSchool3") as! [Data]
+                model.highSchoolPhotos = UserDefaults.standard.array(forKey: "HighSchool3") as! [Data]
             }
         case .collegeSection:
             if(UserDefaults.standard.array(forKey: "College1") != nil) {
-                model.CollegeName = UserDefaults.standard.array(forKey: "College1") as! [String]
+                model.collegeName = UserDefaults.standard.array(forKey: "College1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "College2") != nil) {
-                model.CollegePhone = UserDefaults.standard.array(forKey: "College2") as! [String]
+                model.collegePhone = UserDefaults.standard.array(forKey: "College2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "College3") != nil) {
-                model.CollegePhotos = UserDefaults.standard.array(forKey: "College3") as! [Data]
+                model.collegePhotos = UserDefaults.standard.array(forKey: "College3") as! [Data]
             }
         case .companySection:
             if(UserDefaults.standard.array(forKey: "Company1") != nil) {
-                model.CompanyName = UserDefaults.standard.array(forKey: "Company1") as! [String]
+                model.companyName = UserDefaults.standard.array(forKey: "Company1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Company2") != nil) {
-                model.CompanyPhone = UserDefaults.standard.array(forKey: "Company2") as! [String]
+                model.companyPhone = UserDefaults.standard.array(forKey: "Company2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Company3") != nil) {
-                model.CompanyPhotos = UserDefaults.standard.array(forKey: "Company3") as! [Data]
+                model.companyPhotos = UserDefaults.standard.array(forKey: "Company3") as! [Data]
             }
         case .otherSection:
             if(UserDefaults.standard.array(forKey: "Other1") != nil) {
-                model.OtherName = UserDefaults.standard.array(forKey: "Other1") as! [String]
+                model.otherName = UserDefaults.standard.array(forKey: "Other1") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Other2") != nil) {
-                model.OtherPhone = UserDefaults.standard.array(forKey: "Other2") as! [String]
+                model.otherPhone = UserDefaults.standard.array(forKey: "Other2") as! [String]
             }
             if(UserDefaults.standard.array(forKey: "Other3") != nil) {
-                model.OtherPhotos = UserDefaults.standard.array(forKey: "Other3") as! [Data]
+                model.otherPhotos = UserDefaults.standard.array(forKey: "Other3") as! [Data]
             }
         }
     }
@@ -143,42 +143,42 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
         
         switch model.section {
         case .familySection:
-            label.text = model.FamilyName[indexPath.row]
-            label2.text = model.FamilyPhone[indexPath.row]
-            image3.image = UIImage(data: model.FamilyPhotos[indexPath.row])
+            label.text = model.familyName[indexPath.row]
+            label2.text = model.familyPhone[indexPath.row]
+            image3.image = UIImage(data: model.familyPhotos[indexPath.row])
 //            guard let uiImage = UIImage(data: model.FamilyPhotos[indexPath.row]), let cgImage = uiImage.cgImage else { return UICollectionViewCell() }
 //            image3.image = UIImage(cgImage: cgImage, scale: 0, orientation: uiImage.imageOrientation)
         case .bfSection:
-            label.text = model.BfName[indexPath.row]
-            label2.text = model.BfPhone[indexPath.row]
-            image3.image = UIImage(data: model.BfPhotos[indexPath.row])
+            label.text = model.bfName[indexPath.row]
+            label2.text = model.bfPhone[indexPath.row]
+            image3.image = UIImage(data: model.bfPhotos[indexPath.row])
         case .localSection:
-            label.text = model.LocalName[indexPath.row]
-            label2.text = model.LocalPhone[indexPath.row]
-            image3.image = UIImage(data: model.LocalPhotos[indexPath.row])
+            label.text = model.localName[indexPath.row]
+            label2.text = model.localPhone[indexPath.row]
+            image3.image = UIImage(data: model.localPhotos[indexPath.row])
         case .highSchoolSection:
-            label.text = model.HighSchoolName[indexPath.row]
-            label2.text = model.HighSchoolPhone[indexPath.row]
-            image3.image = UIImage(data: model.HighSchoolPhotos[indexPath.row])
+            label.text = model.highSchoolName[indexPath.row]
+            label2.text = model.highSchoolPhone[indexPath.row]
+            image3.image = UIImage(data: model.highSchoolPhotos[indexPath.row])
         case .collegeSection:
-            label.text = model.CollegeName[indexPath.row]
-            label2.text = model.CollegePhone[indexPath.row]
-            image3.image = UIImage(data: model.CollegePhotos[indexPath.row])
+            label.text = model.collegeName[indexPath.row]
+            label2.text = model.collegePhone[indexPath.row]
+            image3.image = UIImage(data: model.collegePhotos[indexPath.row])
         case .companySection:
-            label.text = model.CompanyName[indexPath.row]
-            label2.text = model.CompanyPhone[indexPath.row]
-            image3.image = UIImage(data: model.CompanyPhotos[indexPath.row])
+            label.text = model.companyName[indexPath.row]
+            label2.text = model.companyPhone[indexPath.row]
+            image3.image = UIImage(data: model.companyPhotos[indexPath.row])
         case .otherSection:
-            label.text = model.OtherName[indexPath.row]
-            label2.text = model.OtherPhone[indexPath.row]
-            image3.image = UIImage(data: model.OtherPhotos[indexPath.row])
+            label.text = model.otherName[indexPath.row]
+            label2.text = model.otherPhone[indexPath.row]
+            image3.image = UIImage(data: model.otherPhotos[indexPath.row])
         }
-        print(model.FamilyName)
-        print(model.FamilyPhone)
-        print(model.FamilyPhotos)
-        print(model.LocalName)
-        print(model.LocalPhone)
-        print(model.LocalPhotos)
+        print(model.familyName)
+        print(model.familyPhone)
+        print(model.familyPhotos)
+        print(model.localName)
+        print(model.localPhone)
+        print(model.localPhotos)
         
         nameCell.delegate = self
         
@@ -190,19 +190,19 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch model.section {
         case .familySection:
-            return model.FamilyName.count
+            return model.familyName.count
         case .bfSection:
-            return model.BfName.count
+            return model.bfName.count
         case .localSection:
-            return model.LocalName.count
+            return model.localName.count
         case .highSchoolSection:
-            return model.HighSchoolName.count
+            return model.highSchoolName.count
         case .collegeSection:
-            return model.CollegeName.count
+            return model.collegeName.count
         case .companySection:
-            return model.CompanyName.count
+            return model.companyName.count
         case .otherSection:
-            return model.OtherName.count
+            return model.otherName.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -241,72 +241,72 @@ extension CardListViewController: CollectionViewCellDelegate {
         if let indexPath = collectionView?.indexPath(for: cell) {
             switch model.section {
             case .familySection:
-                model.FamilyPhotos.remove(at: indexPath.item)
-                model.FamilyName.remove(at: indexPath.item)
-                model.FamilyPhone.remove(at: indexPath.item)
+                model.familyPhotos.remove(at: indexPath.item)
+                model.familyName.remove(at: indexPath.item)
+                model.familyPhone.remove(at: indexPath.item)
             case .bfSection:
-                model.BfPhotos.remove(at: indexPath.item)
-                model.BfName.remove(at: indexPath.item)
-                model.BfPhone.remove(at: indexPath.item)
+                model.bfPhotos.remove(at: indexPath.item)
+                model.bfName.remove(at: indexPath.item)
+                model.bfPhone.remove(at: indexPath.item)
             case .localSection:
-                model.LocalPhotos.remove(at: indexPath.item)
-                model.LocalName.remove(at: indexPath.item)
-                model.LocalPhone.remove(at: indexPath.item)
+                model.localPhotos.remove(at: indexPath.item)
+                model.localName.remove(at: indexPath.item)
+                model.localPhone.remove(at: indexPath.item)
             case .highSchoolSection:
-                model.HighSchoolPhotos.remove(at: indexPath.item)
-                model.HighSchoolName.remove(at: indexPath.item)
-                model.HighSchoolPhone.remove(at: indexPath.item)
+                model.highSchoolPhotos.remove(at: indexPath.item)
+                model.highSchoolName.remove(at: indexPath.item)
+                model.highSchoolPhone.remove(at: indexPath.item)
             case .collegeSection:
-                model.CollegePhotos.remove(at: indexPath.item)
-                model.CollegeName.remove(at: indexPath.item)
-                model.CollegePhone.remove(at: indexPath.item)
+                model.collegePhotos.remove(at: indexPath.item)
+                model.collegeName.remove(at: indexPath.item)
+                model.collegePhone.remove(at: indexPath.item)
             case .companySection:
-                model.CompanyPhotos.remove(at: indexPath.item)
-                model.CompanyName.remove(at: indexPath.item)
-                model.CompanyPhone.remove(at: indexPath.item)
+                model.companyPhotos.remove(at: indexPath.item)
+                model.companyName.remove(at: indexPath.item)
+                model.companyPhone.remove(at: indexPath.item)
             case .otherSection:
-                model.OtherPhotos.remove(at: indexPath.item)
-                model.OtherName.remove(at: indexPath.item)
-                model.OtherPhone.remove(at: indexPath.item)
+                model.otherPhotos.remove(at: indexPath.item)
+                model.otherName.remove(at: indexPath.item)
+                model.otherPhone.remove(at: indexPath.item)
             }
             collectionView?.deleteItems(at: [indexPath])
         }
         switch model.section {
         case .familySection:
-            UserDefaults.standard.set(model.FamilyName, forKey: "Family1")
-            UserDefaults.standard.set(model.FamilyPhone, forKey: "Family2")
-            UserDefaults.standard.set(model.FamilyPhotos, forKey: "Family3")
+            UserDefaults.standard.set(model.familyName, forKey: "Family1")
+            UserDefaults.standard.set(model.familyPhone, forKey: "Family2")
+            UserDefaults.standard.set(model.familyPhotos, forKey: "Family3")
         case .bfSection:
-            UserDefaults.standard.set(model.BfName, forKey: "Bf1")
-            UserDefaults.standard.set(model.BfPhone, forKey: "Bf2")
-            UserDefaults.standard.set(model.BfPhotos, forKey: "Bf3")
+            UserDefaults.standard.set(model.bfName, forKey: "Bf1")
+            UserDefaults.standard.set(model.bfPhone, forKey: "Bf2")
+            UserDefaults.standard.set(model.bfPhotos, forKey: "Bf3")
         case .localSection:
-            UserDefaults.standard.set(model.LocalName, forKey: "Local1")
-            UserDefaults.standard.set(model.LocalPhone, forKey: "Local2")
-            UserDefaults.standard.set(model.LocalPhotos, forKey: "Local3")
+            UserDefaults.standard.set(model.localName, forKey: "Local1")
+            UserDefaults.standard.set(model.localPhone, forKey: "Local2")
+            UserDefaults.standard.set(model.localPhotos, forKey: "Local3")
         case .highSchoolSection:
-            UserDefaults.standard.set(model.HighSchoolName, forKey: "HighSchool1")
-            UserDefaults.standard.set(model.HighSchoolPhone, forKey: "HighSchool2")
-            UserDefaults.standard.set(model.HighSchoolPhotos, forKey: "HighSchool3")
+            UserDefaults.standard.set(model.highSchoolName, forKey: "HighSchool1")
+            UserDefaults.standard.set(model.highSchoolPhone, forKey: "HighSchool2")
+            UserDefaults.standard.set(model.highSchoolPhotos, forKey: "HighSchool3")
         case .collegeSection:
-            UserDefaults.standard.set(model.CollegeName, forKey: "College1")
-            UserDefaults.standard.set(model.CollegePhone, forKey: "College2")
-            UserDefaults.standard.set(model.CollegePhotos, forKey: "College3")
+            UserDefaults.standard.set(model.collegeName, forKey: "College1")
+            UserDefaults.standard.set(model.collegePhone, forKey: "College2")
+            UserDefaults.standard.set(model.collegePhotos, forKey: "College3")
         case .companySection:
-            UserDefaults.standard.set(model.CompanyName, forKey: "Company1")
-            UserDefaults.standard.set(model.CompanyPhone, forKey: "Company2")
-            UserDefaults.standard.set(model.CompanyPhotos, forKey: "Company3")
+            UserDefaults.standard.set(model.companyName, forKey: "Company1")
+            UserDefaults.standard.set(model.companyPhone, forKey: "Company2")
+            UserDefaults.standard.set(model.companyPhotos, forKey: "Company3")
         case .otherSection:
-            UserDefaults.standard.set(model.OtherName, forKey: "Other1")
-            UserDefaults.standard.set(model.OtherPhone, forKey: "Other2")
-            UserDefaults.standard.set(model.OtherPhotos, forKey: "Other3")
+            UserDefaults.standard.set(model.otherName, forKey: "Other1")
+            UserDefaults.standard.set(model.otherPhone, forKey: "Other2")
+            UserDefaults.standard.set(model.otherPhotos, forKey: "Other3")
         }
-        print(model.FamilyName)
-        print(model.FamilyPhone)
-        print(model.FamilyPhotos)
-        print(model.LocalName)
-        print(model.LocalPhone)
-        print(model.LocalPhotos)
+        print(model.familyName)
+        print(model.familyPhone)
+        print(model.familyPhotos)
+        print(model.localName)
+        print(model.localPhone)
+        print(model.localPhotos)
         collectionView.reloadData()
     }
 }

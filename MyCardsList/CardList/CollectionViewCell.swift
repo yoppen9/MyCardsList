@@ -13,9 +13,9 @@ protocol CollectionViewCellDelegate: AnyObject {
 
 class CollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var CardsImageCell: UIImageView!
-    @IBOutlet weak var CardsName: UILabel!
-    @IBOutlet weak var CardsTelephoneNumber: UILabel!
+    @IBOutlet weak var cardsImageCell: UIImageView!
+    @IBOutlet weak var cardsName: UILabel!
+    @IBOutlet weak var cardsTelephoneNumber: UILabel!
     @IBOutlet weak var deleteButtonBackgroundView: UIVisualEffectView!
     
     weak var delegate: CollectionViewCellDelegate?
@@ -29,7 +29,7 @@ class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        CardsImageCell.layer.cornerRadius = 12
+        cardsImageCell.layer.cornerRadius = 12
         deleteButtonBackgroundView.layer.cornerRadius = deleteButtonBackgroundView.bounds.width / 2.0
         deleteButtonBackgroundView.layer.masksToBounds = true
         deleteButtonBackgroundView.isHidden = !isEdithing

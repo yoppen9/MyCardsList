@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9LW-tA-K45">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9LW-tA-K45">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -167,7 +168,7 @@
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E1" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
                                 <rect key="frame" x="50" y="101" width="314" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="iPl-Lj-Dwj"/>
@@ -204,9 +205,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="WJ0-Bu-D7x"/>
                     <connections>
-                        <outlet property="NewBfImage" destination="l5s-MH-UA0" id="Ihb-XW-8sE"/>
-                        <outlet property="NewBfName" destination="k1Q-xT-DQe" id="cBr-fi-FiV"/>
-                        <outlet property="NewBfTel" destination="O8D-aW-3wq" id="vsi-5O-BcF"/>
+                        <outlet property="newImage" destination="l5s-MH-UA0" id="Ihb-XW-8sE"/>
+                        <outlet property="newName" destination="k1Q-xT-DQe" id="cBr-fi-FiV"/>
+                        <outlet property="newTel" destination="O8D-aW-3wq" id="vsi-5O-BcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUy-Pc-FBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -236,7 +237,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="E1" width="940" height="942"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

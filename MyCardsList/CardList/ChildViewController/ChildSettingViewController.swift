@@ -10,9 +10,9 @@ import UIKit
 
 class ChildSettingViewController: UIViewController, UINavigationControllerDelegate {
 
-    @IBOutlet weak var NewBfName: UITextField!
-    @IBOutlet weak var NewBfImage: UIImageView!
-    @IBOutlet weak var NewBfTel: UITextField!
+    @IBOutlet weak var newName: UITextField!
+    @IBOutlet weak var newImage: UIImageView!
+    @IBOutlet weak var newTel: UITextField!
     
     var selectedImageData: Data?
     var model: TitleListModel!
@@ -21,12 +21,13 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.NewBfName.delegate = self
-        self.NewBfTel.delegate = self
-        self.NewBfTel.placeholder = "誕生日"
+        self.newName.delegate = self
+        self.newTel.delegate = self
+        self.newTel.placeholder = "誕生日"
         createDatePicker()
         
-        NewBfImage.layer.cornerRadius = NewBfImage.frame.size.width * 0.1
+        newImage.layer.cornerRadius = newImage.frame.size.width * 0.1
+        newImage.image = UIImage(named: "E1")
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow2), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -37,8 +38,8 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneButton], animated: true)
-        NewBfTel.inputAccessoryView = toolbar
-        NewBfTel.inputView = datePicler
+        newTel.inputAccessoryView = toolbar
+        newTel.inputView = datePicler
         datePicler.preferredDatePickerStyle = .wheels
         datePicler.datePickerMode = .date
     }
@@ -46,76 +47,76 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
-        NewBfTel.text = formatter.string(from: datePicler.date)
+        newTel.text = formatter.string(from: datePicler.date)
         self.view.endEditing(true)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.NewBfTel.isFirstResponder) {
-            self.NewBfTel.resignFirstResponder()
+        if (self.newTel.isFirstResponder) {
+            self.newTel.resignFirstResponder()
         }
     }
     @IBAction func NewBfButton(_ sender: Any) {
-        guard let text = NewBfName.text, !text.isEmpty,
-              let text1 = NewBfTel.text, !text1.isEmpty,
+        guard let text = newName.text, !text.isEmpty,
+              let text1 = newTel.text, !text1.isEmpty,
               let text3 = selectedImageData, !text3.isEmpty else { return }
         switch self.model.section {
         case .familySection:
-            model.FamilyName.append(NewBfName.text!)
-            model.FamilyPhone.append(NewBfTel.text!)
-            model.FamilyPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.FamilyName, forKey: "Family1")
-            UserDefaults.standard.set(model.FamilyPhone, forKey: "Family2")
-            UserDefaults.standard.set(model.FamilyPhotos, forKey: "Family3")
+            model.familyName.append(newName.text!)
+            model.familyPhone.append(newTel.text!)
+            model.familyPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.familyName, forKey: "Family1")
+            UserDefaults.standard.set(model.familyPhone, forKey: "Family2")
+            UserDefaults.standard.set(model.familyPhotos, forKey: "Family3")
         case .bfSection:
-            model.BfName.append(NewBfName.text!)
-            model.BfPhone.append(NewBfTel.text!)
-            model.BfPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.BfName, forKey: "Bf1")
-            UserDefaults.standard.set(model.BfPhone, forKey: "Bf2")
-            UserDefaults.standard.set(model.BfPhotos, forKey: "Bf3")
+            model.bfName.append(newName.text!)
+            model.bfPhone.append(newTel.text!)
+            model.bfPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.bfName, forKey: "Bf1")
+            UserDefaults.standard.set(model.bfPhone, forKey: "Bf2")
+            UserDefaults.standard.set(model.bfPhotos, forKey: "Bf3")
         case .localSection:
-            model.LocalName.append(NewBfName.text!)
-            model.LocalPhone.append(NewBfTel.text!)
-            model.LocalPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.LocalName, forKey: "Local1")
-            UserDefaults.standard.set(model.LocalPhone, forKey: "Local2")
-            UserDefaults.standard.set(model.LocalPhotos, forKey: "Local3")
+            model.localName.append(newName.text!)
+            model.localPhone.append(newTel.text!)
+            model.localPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.localName, forKey: "Local1")
+            UserDefaults.standard.set(model.localPhone, forKey: "Local2")
+            UserDefaults.standard.set(model.localPhotos, forKey: "Local3")
         case .highSchoolSection:
-            model.HighSchoolName.append(NewBfName.text!)
-            model.HighSchoolPhone.append(NewBfTel.text!)
-            model.HighSchoolPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.HighSchoolName, forKey: "HighSchool1")
-            UserDefaults.standard.set(model.HighSchoolPhone, forKey: "HighSchool2")
-            UserDefaults.standard.set(model.HighSchoolPhotos, forKey: "HighSchool3")
+            model.highSchoolName.append(newName.text!)
+            model.highSchoolPhone.append(newTel.text!)
+            model.highSchoolPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.highSchoolName, forKey: "HighSchool1")
+            UserDefaults.standard.set(model.highSchoolPhone, forKey: "HighSchool2")
+            UserDefaults.standard.set(model.highSchoolPhotos, forKey: "HighSchool3")
         case .collegeSection:
-            model.CollegeName.append(NewBfName.text!)
-            model.CollegePhone.append(NewBfTel.text!)
-            model.CollegePhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.CollegeName, forKey: "College1")
-            UserDefaults.standard.set(model.CollegePhone, forKey: "College2")
-            UserDefaults.standard.set(model.CollegePhotos, forKey: "College3")
+            model.collegeName.append(newName.text!)
+            model.collegePhone.append(newTel.text!)
+            model.collegePhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.collegeName, forKey: "College1")
+            UserDefaults.standard.set(model.collegePhone, forKey: "College2")
+            UserDefaults.standard.set(model.collegePhotos, forKey: "College3")
         case .companySection:
-            model.CompanyName.append(NewBfName.text!)
-            model.CompanyPhone.append(NewBfTel.text!)
-            model.CompanyPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.CompanyName, forKey: "Company1")
-            UserDefaults.standard.set(model.CompanyPhone, forKey: "Company2")
-            UserDefaults.standard.set(model.CompanyPhotos, forKey: "Company3")
+            model.companyName.append(newName.text!)
+            model.companyPhone.append(newTel.text!)
+            model.companyPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.companyName, forKey: "Company1")
+            UserDefaults.standard.set(model.companyPhone, forKey: "Company2")
+            UserDefaults.standard.set(model.companyPhotos, forKey: "Company3")
         case .otherSection:
-            model.OtherName.append(NewBfName.text!)
-            model.OtherPhone.append(NewBfTel.text!)
-            model.OtherPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.OtherName, forKey: "Other1")
-            UserDefaults.standard.set(model.OtherPhone, forKey: "Other2")
-            UserDefaults.standard.set(model.OtherPhotos, forKey: "Other3")
+            model.otherName.append(newName.text!)
+            model.otherPhone.append(newTel.text!)
+            model.otherPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.otherName, forKey: "Other1")
+            UserDefaults.standard.set(model.otherPhone, forKey: "Other2")
+            UserDefaults.standard.set(model.otherPhotos, forKey: "Other3")
         }
         self.dismiss(animated: true, completion: {
-            self.NewBfName.text! = ""
-            self.NewBfTel.text! = ""
+            self.newName.text! = ""
+            self.newTel.text! = ""
         })
     }
     @objc func keyboardWillShow(notificaation: NSNotification) {
-        if !NewBfTel.isFirstResponder {
+        if !newTel.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -125,7 +126,7 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         }
     }
     @objc func keyboardWillShow2(notificaation: NSNotification) {
-        if !NewBfName.isFirstResponder {
+        if !newName.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -144,21 +145,10 @@ extension ChildSettingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         let resizedImage = selectedImage.resizeImage(withPercentage: 0.7)
-        NewBfImage.image = resizedImage
+        newImage.image = resizedImage
         selectedImageData = resizedImage?.jpegData(compressionQuality: 0.2)
         dismiss(animated: true, completion: nil)
         
-//        guard let pickerImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-//        selectedImageData = pickerImage.jpegData(compressionQuality: 1.0)
-//        let cropController = CropViewController(croppingStyle: .default, image: pickerImage)
-//        cropController.delegate = self
-//        cropController.customAspectRatio = NewBfImage.frame.size
-////        cropController.aspectRatioPickerButtonHidden = true
-////        cropController.resetAspectRatioEnabled = false
-////        cropController.rotateButtonsHidden = true
-//        cropController.cropView.cropBoxResizeEnabled = false
-//        dismiss(animated: true, completion: nil)
-//        self.present(cropController, animated: true, completion: nil)
     }
     
     @IBAction func BfImageButton(_ sender: Any) {
@@ -187,16 +177,7 @@ extension ChildSettingViewController: UIImagePickerControllerDelegate {
         present(alertController, animated: true, completion: nil)
     }
 }
-//extension ChildSettingViewController: CropViewControllerDelegate {
-//    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-//        updateImageViewWithImage(image, fromCropViewController: cropViewController)
-//    }
-//
-//    func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
-//        self.NewBfImage.image = image
-//        cropViewController.dismiss(animated: true, completion: nil)
-//    }
-//}
+
 extension ChildSettingViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)

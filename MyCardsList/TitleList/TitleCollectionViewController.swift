@@ -12,8 +12,8 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
     
     @IBOutlet weak var listCollectionView: UICollectionView!
     private let model: TitleListModel = TitleListModel()
-    let titleListImage = ["family","bf","local","highSchool","college","company",""]
-    let titleListName = ["家族","親友","地元友達","高校友達","大学友達","会社","その他"]
+    let titleListImageArray = ["family","bf","local","highSchool","college","company",""]
+    let titleListNameArray = ["家族","親友","地元友達","高校友達","大学友達","会社","その他"]
     
     var listModel: TitleCollectionViewCell!
     var bannerView: GADBannerView!
@@ -21,6 +21,7 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        広告
 //        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
 //        addBannerViewToView(bannerView)
 //        bannerView.adUnitID = "ca-app-pub-1642371430465959/4309452198"
@@ -69,10 +70,10 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
         let listCell = collectionView.dequeueReusableCell(withReuseIdentifier: "listCell", for: indexPath)
         
         let listName = listCell.contentView.viewWithTag(11) as! UILabel
-        listName.text = titleListName[indexPath.row]
+        listName.text = titleListNameArray[indexPath.row]
         
         let imageView = listCell.contentView.viewWithTag(22) as! UIImageView
-        let cellImage = UIImage(named: titleListImage[indexPath.row])
+        let cellImage = UIImage(named: titleListImageArray[indexPath.row])
         imageView.image = cellImage
         
         listCell.backgroundColor = .white

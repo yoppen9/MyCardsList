@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,7 +22,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kz1-yN-wlj">
                         <rect key="frame" x="0.0" y="0.0" width="224" height="298"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山岸善将" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhI-6w-Hbh">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhI-6w-Hbh">
                         <rect key="frame" x="0.0" y="308" width="224" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="0dB-Gj-X5g"/>
@@ -30,7 +31,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1997年9月17日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtI-WG-Rud">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxx年x月xx日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtI-WG-Rud">
                         <rect key="frame" x="0.0" y="338" width="224" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="2Nf-v0-DWO"/>
@@ -89,9 +90,9 @@
             </constraints>
             <size key="customSize" width="224" height="388"/>
             <connections>
-                <outlet property="CardsImageCell" destination="Kz1-yN-wlj" id="Ghm-H7-jHY"/>
-                <outlet property="CardsName" destination="bhI-6w-Hbh" id="sbN-Rk-OfW"/>
-                <outlet property="CardsTelephoneNumber" destination="DtI-WG-Rud" id="4dh-wN-fWe"/>
+                <outlet property="cardsImageCell" destination="Kz1-yN-wlj" id="Ghm-H7-jHY"/>
+                <outlet property="cardsName" destination="bhI-6w-Hbh" id="sbN-Rk-OfW"/>
+                <outlet property="cardsTelephoneNumber" destination="DtI-WG-Rud" id="4dh-wN-fWe"/>
                 <outlet property="deleteButtonBackgroundView" destination="yGf-NR-F5R" id="iDI-hl-kKL"/>
             </connections>
             <point key="canvasLocation" x="-157" y="65"/>

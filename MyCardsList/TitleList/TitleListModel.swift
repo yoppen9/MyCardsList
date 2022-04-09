@@ -22,31 +22,31 @@ class TitleListModel {
     var section = Section.familySection
     let cardsList = ["家族","親友","地元友達","高校友達","大学友達","会社","その他"]
     
-    var FamilyName: [String] = []
-    var FamilyPhone: [String] = []
-    var FamilyPhotos: [Data] = []
+    var familyName: [String] = []
+    var familyPhone: [String] = []
+    var familyPhotos: [Data] = []
     
-    var BfName: [String] = []
-    var BfPhone: [String] = []
-    var BfPhotos: [Data] = []
+    var bfName: [String] = []
+    var bfPhone: [String] = []
+    var bfPhotos: [Data] = []
     
-    var LocalName: [String] = []
-    var LocalPhone: [String] = []
-    var LocalPhotos: [Data] = []
+    var localName: [String] = []
+    var localPhone: [String] = []
+    var localPhotos: [Data] = []
     
-    var HighSchoolName: [String] = []
-    var HighSchoolPhone: [String] = []
-    var HighSchoolPhotos: [Data] = []
+    var highSchoolName: [String] = []
+    var highSchoolPhone: [String] = []
+    var highSchoolPhotos: [Data] = []
 
-    var CollegeName: [String] = []
-    var CollegePhone: [String] = []
-    var CollegePhotos: [Data] = []
+    var collegeName: [String] = []
+    var collegePhone: [String] = []
+    var collegePhotos: [Data] = []
     
-    var CompanyName: [String] = []
-    var CompanyPhone: [String] = []
-    var CompanyPhotos: [Data] = []
+    var companyName: [String] = []
+    var companyPhone: [String] = []
+    var companyPhotos: [Data] = []
     
-    var OtherName: [String] = []
-    var OtherPhone: [String] = []
-    var OtherPhotos: [Data] = []
+    var otherName: [String] = []
+    var otherPhone: [String] = []
+    var otherPhotos: [Data] = []
 }
