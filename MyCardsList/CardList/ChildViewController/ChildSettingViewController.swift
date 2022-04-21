@@ -6,9 +6,9 @@
 //
 
 import UIKit
-//import CropViewController
+import CropViewController
 
-class ChildSettingViewController: UIViewController, UINavigationControllerDelegate {
+class ChildSettingViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var newName: UITextField!
     @IBOutlet weak var newImage: UIImageView!
@@ -26,7 +26,8 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         self.newTel.placeholder = "誕生日"
         createDatePicker()
         
-        newImage.layer.cornerRadius = newImage.frame.size.width * 0.1
+        newImage.layer.cornerRadius = newImage.frame.size.width / 2
+        newImage.contentMode = .scaleAspectFill
         newImage.image = UIImage(named: "E1")
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -140,18 +141,18 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
             self.view.frame.origin.y = 0
         }
     }
-}
-extension ChildSettingViewController: UIImagePickerControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        let resizedImage = selectedImage.resizeImage(withPercentage: 0.7)
-        newImage.image = resizedImage
-        selectedImageData = resizedImage?.jpegData(compressionQuality: 0.2)
-        dismiss(animated: true, completion: nil)
         
+        dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        let cropViewController = CropViewController(croppingStyle: .circular, image: image)
+        cropViewController.delegate = self
+        cropViewController.children.first?.modalTransitionStyle = .coverVertical
+        present(cropViewController, animated: true, completion: nil)
     }
     
-    @IBAction func BfImageButton(_ sender: Any) {
+    @IBAction func tapAddIImage(_ sender: Any) {
         let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler: { (action) in
@@ -175,6 +176,22 @@ extension ChildSettingViewController: UIImagePickerControllerDelegate {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+}
+    
+extension ChildSettingViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+    
+    func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+        
+        let resizedImage = image.resizeImage(withPercentage: 0.7)
+        newImage.image = resizedImage
+        selectedImageData = resizedImage?.jpegData(compressionQuality: 0.2)
+        cropViewController.dismiss(animated: true, completion: nil)
+        
     }
 }
 

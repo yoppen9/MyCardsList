@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UPCarouselFlowLayout
 
 class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -109,14 +110,16 @@ class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
         viewHeight = self.view.frame.height
         navHeight = self.navigationController?.navigationBar.frame.size.height
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         let nib = UINib(nibName: "CollectionViewCell", bundle: .main)
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell1")
         
         navigationItem.rightBarButtonItem = editButtonItem
-//        editButton = editButtonItem
+        
+        let layout = UPCarouselFlowLayout()
+        layout.itemSize = CGSize (width: 300, height: 300)
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
+        
     }
     @IBAction func settingButton(_ sender: Any) {
         let nextView2 = storyboard?.instantiateViewController(identifier: "next2") as! ChildSettingViewController
@@ -133,21 +136,19 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
         let label2 = nameCell.contentView.viewWithTag(2) as! UILabel
         let image3 = nameCell.contentView.viewWithTag(3) as! UIImageView
         
-        nameCell.backgroundColor = UIColor.white
-        nameCell.layer.cornerRadius = 12
-        nameCell.layer.shadowOpacity = 0.4
-        nameCell.layer.shadowRadius = 12
-        nameCell.layer.shadowColor = UIColor.black.cgColor
-        nameCell.layer.shadowOffset = CGSize(width: 8, height: 8)
-        nameCell.layer.masksToBounds = false
+//        nameCell.backgroundColor = UIColor.white
+//        nameCell.layer.cornerRadius = 12
+//        nameCell.layer.shadowOpacity = 0.4
+//        nameCell.layer.shadowRadius = 12
+//        nameCell.layer.shadowColor = UIColor.black.cgColor
+//        nameCell.layer.shadowOffset = CGSize(width: 8, height: 8)
+//        nameCell.layer.masksToBounds = false
         
         switch model.section {
         case .familySection:
             label.text = model.familyName[indexPath.row]
             label2.text = model.familyPhone[indexPath.row]
             image3.image = UIImage(data: model.familyPhotos[indexPath.row])
-//            guard let uiImage = UIImage(data: model.FamilyPhotos[indexPath.row]), let cgImage = uiImage.cgImage else { return UICollectionViewCell() }
-//            image3.image = UIImage(cgImage: cgImage, scale: 0, orientation: uiImage.imageOrientation)
         case .bfSection:
             label.text = model.bfName[indexPath.row]
             label2.text = model.bfPhone[indexPath.row]
@@ -205,20 +206,26 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
             return model.otherName.count
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         cellWidth = viewWidth - 75
-        cellHeight = viewHeight - 300
+        cellHeight = viewHeight - 385
         cellOffset = viewWidth - cellWidth
         return CGSize(width: cellWidth, height: cellHeight)
     }
+    
+//    セクションごとの余白
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         cellWidth = viewWidth - 75
         cellOffset = viewWidth - cellWidth
         return UIEdgeInsets(top: -navHeight, left: cellOffset / 2, bottom: 0, right: cellOffset / 2)
     }
+
+//    垂直方向におけるセル間のマージン
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 25
     }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         addBarButtonItem.isEnabled = !editing

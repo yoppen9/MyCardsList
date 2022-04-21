@@ -74,11 +74,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dVJ-wE-L35">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dVJ-wE-L35">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FVp-WW-vw2">
-                                    <size key="itemSize" width="175" height="249"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NQs-gn-t1M">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -103,10 +103,10 @@
                         <viewLayoutGuide key="safeArea" id="xzf-C5-DPr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xzf-C5-DPr" firstAttribute="bottom" secondItem="dVJ-wE-L35" secondAttribute="bottom" id="1KG-8l-cVm"/>
                             <constraint firstItem="dVJ-wE-L35" firstAttribute="leading" secondItem="xzf-C5-DPr" secondAttribute="leading" id="Mgr-ad-5EZ"/>
                             <constraint firstItem="xzf-C5-DPr" firstAttribute="trailing" secondItem="dVJ-wE-L35" secondAttribute="trailing" id="MpL-jl-XnA"/>
                             <constraint firstItem="dVJ-wE-L35" firstAttribute="top" secondItem="xzf-C5-DPr" secondAttribute="top" id="ieK-EX-8Gv"/>
-                            <constraint firstItem="xzf-C5-DPr" firstAttribute="bottom" secondItem="dVJ-wE-L35" secondAttribute="bottom" id="zhU-uG-qAn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YXW-aF-zqV">
@@ -123,14 +123,13 @@
                     <connections>
                         <outlet property="addBarButtonItem" destination="n6T-bS-3f8" id="9Pb-wh-Qo3"/>
                         <outlet property="collectionView" destination="dVJ-wE-L35" id="CIo-ev-FsC"/>
-                        <outlet property="collectionViewFlowLayout" destination="FVp-WW-vw2" id="Fhq-D0-knP"/>
                         <segue destination="JfV-cq-fea" kind="presentation" identifier="BfSegue" id="nkz-HN-53M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3Q-7J-fe7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="k5J-gI-4vz"/>
             </objects>
-            <point key="canvasLocation" x="1395.6521739130435" y="130.58035714285714"/>
+            <point key="canvasLocation" x="1394.2028985507247" y="130.58035714285714"/>
         </scene>
         <!--Child Setting View Controller-->
         <scene sceneID="Pnu-CQ-1wq">
@@ -141,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="誕生日" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="O8D-aW-3wq">
-                                <rect key="frame" x="50" y="514" width="314" height="34"/>
+                                <rect key="frame" x="50" y="513" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="lqD-J0-H2S"/>
                                 </constraints>
@@ -149,7 +148,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz8-ep-Bt8">
-                                <rect key="frame" x="181.5" y="598" width="51" height="42"/>
+                                <rect key="frame" x="181.5" y="597" width="51" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="NDh-m8-5bn"/>
                                     <constraint firstAttribute="height" constant="42" id="mWg-Rj-989"/>
@@ -161,29 +160,24 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-xT-DQe">
-                                <rect key="frame" x="50" y="440" width="314" height="34"/>
+                                <rect key="frame" x="50" y="439" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="EHF-2d-M1R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
-                                <rect key="frame" x="50" y="101" width="314" height="300"/>
+                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
+                                <rect key="frame" x="57" y="100" width="300" height="300"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="C1n-0q-erZ"/>
                                     <constraint firstAttribute="height" constant="300" id="iPl-Lj-Dwj"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-y3-IGR">
-                                <rect key="frame" x="157" y="257.5" width="100" height="47"/>
-                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
-                                <state key="normal" title="画像追加">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
                                 <connections>
-                                    <action selector="BfImageButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="5rY-oO-cSo"/>
+                                    <outletCollection property="gestureRecognizers" destination="dPL-t5-jnk" appends="YES" id="DsN-lA-szm"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9fV-MX-G9L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -191,16 +185,13 @@
                             <constraint firstItem="O8D-aW-3wq" firstAttribute="top" secondItem="k1Q-xT-DQe" secondAttribute="bottom" constant="40" id="0At-99-xrx"/>
                             <constraint firstItem="k1Q-xT-DQe" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="Ef8-B7-KWW"/>
                             <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="k1Q-xT-DQe" secondAttribute="trailing" constant="50" id="Msk-X5-wug"/>
-                            <constraint firstItem="l5s-MH-UA0" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="OjW-xI-Eu0"/>
                             <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="O8D-aW-3wq" secondAttribute="trailing" constant="50" id="QGP-o6-z2u"/>
-                            <constraint firstItem="l5s-MH-UA0" firstAttribute="top" secondItem="9fV-MX-G9L" secondAttribute="top" constant="101" id="YEM-pf-aFO"/>
-                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerY" secondItem="ag7-Jm-0Fe" secondAttribute="centerY" constant="-140" id="YOc-Fv-beK"/>
+                            <constraint firstItem="l5s-MH-UA0" firstAttribute="top" secondItem="9fV-MX-G9L" secondAttribute="top" constant="100" id="YEM-pf-aFO"/>
                             <constraint firstItem="O8D-aW-3wq" firstAttribute="leading" secondItem="9fV-MX-G9L" secondAttribute="leading" constant="50" id="b29-0V-JWv"/>
-                            <constraint firstItem="Xa4-y3-IGR" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="eRv-oT-zW2"/>
                             <constraint firstItem="k1Q-xT-DQe" firstAttribute="top" secondItem="l5s-MH-UA0" secondAttribute="bottom" constant="39" id="jof-f3-xZo"/>
                             <constraint firstItem="Gz8-ep-Bt8" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="oK6-0U-uOP"/>
-                            <constraint firstItem="9fV-MX-G9L" firstAttribute="trailing" secondItem="l5s-MH-UA0" secondAttribute="trailing" constant="50" id="rXc-it-3d8"/>
                             <constraint firstItem="Gz8-ep-Bt8" firstAttribute="top" secondItem="O8D-aW-3wq" secondAttribute="bottom" constant="50" id="tMW-cu-3ot"/>
+                            <constraint firstItem="l5s-MH-UA0" firstAttribute="centerX" secondItem="ag7-Jm-0Fe" secondAttribute="centerX" id="udP-8X-tUB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WJ0-Bu-D7x"/>
@@ -211,6 +202,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUy-Pc-FBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dPL-t5-jnk">
+                    <connections>
+                        <action selector="tapAddIImage:" destination="JfV-cq-fea" id="9FE-l1-1rg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2169.5652173913045" y="130.58035714285714"/>
         </scene>
