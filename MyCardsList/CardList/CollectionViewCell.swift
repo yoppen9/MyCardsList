@@ -29,10 +29,12 @@ class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cardsImageCell.layer.cornerRadius = 12
+        cardsImageCell.layer.cornerRadius = cardsImageCell.frame.size.width / 2
+        
         deleteButtonBackgroundView.layer.cornerRadius = deleteButtonBackgroundView.bounds.width / 2.0
         deleteButtonBackgroundView.layer.masksToBounds = true
         deleteButtonBackgroundView.isHidden = !isEdithing
+        
     }
     @IBAction func deleteButtonDidTap(_ sender: Any) {
         delegate?.delete(cell: self)

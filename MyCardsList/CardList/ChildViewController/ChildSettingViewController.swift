@@ -48,6 +48,7 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
+        formatter.dateFormat = "yyyy年MM月dd日"
         newTel.text = formatter.string(from: datePicler.date)
         self.view.endEditing(true)
     }

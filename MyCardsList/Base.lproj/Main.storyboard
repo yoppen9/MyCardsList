@@ -11,6 +11,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Calendar View Controller-->
+        <scene sceneID="leb-3C-6Oc">
+            <objects>
+                <viewController id="JwD-5Q-prg" customClass="CalendarViewController" customModule="MyCardsList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0WW-9o-mzc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoP-5b-nl1" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JwD-5Q-prg" id="bCT-J4-H9H"/>
+                                    <outlet property="delegate" destination="JwD-5Q-prg" id="utq-Bv-eZL"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t0G-WY-8I5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="t0G-WY-8I5" firstAttribute="trailing" secondItem="XoP-5b-nl1" secondAttribute="trailing" id="4Zo-15-hwi"/>
+                            <constraint firstItem="XoP-5b-nl1" firstAttribute="top" secondItem="t0G-WY-8I5" secondAttribute="top" id="LtU-ZO-aue"/>
+                            <constraint firstItem="XoP-5b-nl1" firstAttribute="leading" secondItem="t0G-WY-8I5" secondAttribute="leading" id="U91-Dy-k6k"/>
+                            <constraint firstItem="t0G-WY-8I5" firstAttribute="bottom" secondItem="XoP-5b-nl1" secondAttribute="bottom" id="dq9-F0-hhq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="05l-0P-ok6"/>
+                    <connections>
+                        <outlet property="fsCalendar" destination="XoP-5b-nl1" id="3qz-5R-y0b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6O-GI-YIL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="510" y="-535"/>
+        </scene>
         <!--カテゴリー-->
         <scene sceneID="hlU-Jp-ApM">
             <objects>
@@ -56,6 +91,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="カテゴリー" id="BZh-8z-BiD">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="27S-Sp-pf0"/>
+                        <barButtonItem key="rightBarButtonItem" image="calendar.circle" catalog="system" id="wBx-XR-TSd">
+                            <connections>
+                                <segue destination="JwD-5Q-prg" kind="modal" id="PRc-7y-oVK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listCollectionView" destination="fBn-BJ-iy2" id="dsV-hs-9v3"/>
@@ -75,9 +115,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dVJ-wE-L35">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NQs-gn-t1M">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oam-JH-L0v">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -103,7 +143,7 @@
                         <viewLayoutGuide key="safeArea" id="xzf-C5-DPr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xzf-C5-DPr" firstAttribute="bottom" secondItem="dVJ-wE-L35" secondAttribute="bottom" id="1KG-8l-cVm"/>
+                            <constraint firstAttribute="bottom" secondItem="dVJ-wE-L35" secondAttribute="bottom" id="MPf-Nm-149"/>
                             <constraint firstItem="dVJ-wE-L35" firstAttribute="leading" secondItem="xzf-C5-DPr" secondAttribute="leading" id="Mgr-ad-5EZ"/>
                             <constraint firstItem="xzf-C5-DPr" firstAttribute="trailing" secondItem="dVJ-wE-L35" secondAttribute="trailing" id="MpL-jl-XnA"/>
                             <constraint firstItem="dVJ-wE-L35" firstAttribute="top" secondItem="xzf-C5-DPr" secondAttribute="top" id="ieK-EX-8Gv"/>
@@ -154,7 +194,7 @@
                                     <constraint firstAttribute="height" constant="42" id="mWg-Rj-989"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
-                                <state key="normal" title="決定"/>
+                                <state key="normal" title="追加"/>
                                 <connections>
                                     <action selector="NewBfButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="E2o-jB-bAN"/>
                                 </connections>
@@ -165,7 +205,7 @@
                                     <constraint firstAttribute="height" constant="34" id="EHF-2d-M1R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-MH-UA0">
                                 <rect key="frame" x="57" y="100" width="300" height="300"/>
@@ -233,6 +273,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -242,6 +283,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

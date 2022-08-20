@@ -1,0 +1,45 @@
+{
+  "buildCommand" : "prepareForIndexing",
+  "configuredTargets" : [
+    {
+      "guid" : "ae16597fbee42e1c5652d2ee3cac4c8812277fd9a351c841c3696036f1a4462d"
+    },
+    {
+      "guid" : "ae16597fbee42e1c5652d2ee3cac4c88e57c24c9bf7d47117e80f38445e5bc3b"
+    },
+    {
+      "guid" : "ae16597fbee42e1c5652d2ee3cac4c88036be8857510c0dbed8e5b095b7d2e06"
+    }
+  ],
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/yamagishiyoshimasa/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/yamagishiyoshimasa/Library/Developer/Xcode/DerivedData/Pods-fbltlpjdwvsvyycnetdsvnngbmjg/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/yamagishiyoshimasa/Library/Developer/Xcode/DerivedData/Pods-fbltlpjdwvsvyycnetdsvnngbmjg/Index/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

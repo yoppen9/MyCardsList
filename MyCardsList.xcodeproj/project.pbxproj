@@ -20,6 +20,7 @@
 		AF22CC5F268F54190051C583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF22CC5D268F54190051C583 /* LaunchScreen.storyboard */; };
 		AF22CD0226A1808F0051C583 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0126A1808F0051C583 /* CardListViewController.swift */; };
 		AF22CD0726A181CF0051C583 /* ChildSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */; };
+		AF25E7C728490A0300E4D1CD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF25E7C628490A0300E4D1CD /* CalendarViewController.swift */; };
 		AF46CBFE26FB1A3D00DFBCAA /* Pods_MyCardsList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF46CBFB26FB19DC00DFBCAA /* Pods_MyCardsList.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		AF22CC60268F54190051C583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF22CD0126A1808F0051C583 /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		AF22CD0626A181CF0051C583 /* ChildSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingViewController.swift; sourceTree = "<group>"; };
+		AF25E7C628490A0300E4D1CD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		AF46CBE626F996CC00DFBCAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		AF46CBE726F996CD00DFBCAA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AF46CBE826F9DABE00DFBCAA /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				AF22CC50268F54150051C583 /* Products */,
 				AF22CD0526A181770051C583 /* TitleList */,
 				AF22CD0326A180CC0051C583 /* CardList */,
+				AF25E7C5284909C300E4D1CD /* Calendar */,
 			);
 			path = MyCardsList;
 			sourceTree = "<group>";
@@ -145,6 +148,14 @@
 				AF155F2126A70683005BDCC8 /* TitleListModel.swift */,
 			);
 			path = TitleList;
+			sourceTree = "<group>";
+		};
+		AF25E7C5284909C300E4D1CD /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				AF25E7C628490A0300E4D1CD /* CalendarViewController.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 				AF060EF126EAEBCE00DA2BCD /* TitleCollectionViewController.swift in Sources */,
 				AF060EED26E72C7A00DA2BCD /* CollectionViewCell.swift in Sources */,
 				AF22CC55268F54150051C583 /* SceneDelegate.swift in Sources */,
+				AF25E7C728490A0300E4D1CD /* CalendarViewController.swift in Sources */,
 				AF155F2226A70683005BDCC8 /* TitleListModel.swift in Sources */,
 				AF22CD0226A1808F0051C583 /* CardListViewController.swift in Sources */,
 			);

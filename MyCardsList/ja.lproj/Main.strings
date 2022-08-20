@@ -5,8 +5,8 @@
 /* Class = "UINavigationItem"; title = "カテゴリー"; ObjectID = "BZh-8z-BiD"; */
 "BZh-8z-BiD.title" = "カテゴリー";
 
-/* Class = "UIButton"; normalTitle = "決定"; ObjectID = "Gz8-ep-Bt8"; */
-"Gz8-ep-Bt8.normalTitle" = "決定";
+/* Class = "UIButton"; normalTitle = "追加"; ObjectID = "Gz8-ep-Bt8"; */
+"Gz8-ep-Bt8.normalTitle" = "追加";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "MZt-yS-aJV"; */
 "MZt-yS-aJV.title" = "Item";

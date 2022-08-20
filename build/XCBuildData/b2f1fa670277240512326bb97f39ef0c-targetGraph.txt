@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+CropViewController-TOCropViewControllerBundle in Pods
+CropViewController in Pods, depends on:
+CropViewController-TOCropViewControllerBundle in Pods (explicit)
+Pods-MyCardsList in Pods, depends on:
+CropViewController in Pods (explicit)

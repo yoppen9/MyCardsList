@@ -208,8 +208,9 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        collectionView.layoutIfNeeded()
         cellWidth = viewWidth - 75
-        cellHeight = viewHeight - 385
+        cellHeight = viewHeight - 300
         cellOffset = viewWidth - cellWidth
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -217,13 +218,14 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
 //    セクションごとの余白
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         cellWidth = viewWidth - 75
+//        cellWidth = viewWidth - 30
         cellOffset = viewWidth - cellWidth
         return UIEdgeInsets(top: -navHeight, left: cellOffset / 2, bottom: 0, right: cellOffset / 2)
     }
 
 //    垂直方向におけるセル間のマージン
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 25
+        return -50
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
