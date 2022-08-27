@@ -11,8 +11,8 @@ import CropViewController
 class ChildSettingViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var newName: UITextField!
+    @IBOutlet weak var newBirthday: UITextField!
     @IBOutlet weak var newImage: UIImageView!
-    @IBOutlet weak var newTel: UITextField!
     
     var selectedImageData: Data?
     var model: TitleListModel!
@@ -22,8 +22,8 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.newName.delegate = self
-        self.newTel.delegate = self
-        self.newTel.placeholder = "誕生日"
+        self.newBirthday.delegate = self
+        self.newBirthday.placeholder = "誕生日"
         createDatePicker()
         
         newImage.layer.cornerRadius = newImage.frame.size.width / 2
@@ -39,8 +39,8 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         toolbar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneButton], animated: true)
-        newTel.inputAccessoryView = toolbar
-        newTel.inputView = datePicler
+        newBirthday.inputAccessoryView = toolbar
+        newBirthday.inputView = datePicler
         datePicler.preferredDatePickerStyle = .wheels
         datePicler.datePickerMode = .date
     }
@@ -49,64 +49,64 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         formatter.dateStyle = .long
         formatter.timeStyle = .none
         formatter.dateFormat = "yyyy年MM月dd日"
-        newTel.text = formatter.string(from: datePicler.date)
+        newBirthday.text = formatter.string(from: datePicler.date)
         self.view.endEditing(true)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.newTel.isFirstResponder) {
-            self.newTel.resignFirstResponder()
+        if (self.newBirthday.isFirstResponder) {
+            self.newBirthday.resignFirstResponder()
         }
     }
-    @IBAction func NewBfButton(_ sender: Any) {
+    @IBAction func NewBestFriendButton(_ sender: Any) {
         guard let text = newName.text, !text.isEmpty,
-              let text1 = newTel.text, !text1.isEmpty,
+              let text1 = newBirthday.text, !text1.isEmpty,
               let text3 = selectedImageData, !text3.isEmpty else { return }
         switch self.model.section {
         case .familySection:
             model.familyName.append(newName.text!)
-            model.familyBirthday.append(newTel.text!)
+            model.familyBirthday.append(newBirthday.text!)
             model.familyPhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.familyName, forKey: "FamilyName")
             UserDefaults.standard.set(model.familyBirthday, forKey: "FamilyBirthday")
             UserDefaults.standard.set(model.familyPhotos, forKey: "FamilyPhotos")
         case .bestFriendSection:
             model.bestFriendName.append(newName.text!)
-            model.bestFriendBirthday.append(newTel.text!)
+            model.bestFriendBirthday.append(newBirthday.text!)
             model.bestFriendPhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.bestFriendName, forKey: "BestFriendName")
             UserDefaults.standard.set(model.bestFriendBirthday, forKey: "BestFriendBirthday")
             UserDefaults.standard.set(model.bestFriendPhotos, forKey: "BestFriendPhotos")
         case .localFriendsSection:
             model.localFriendsName.append(newName.text!)
-            model.localFriendsBirthday.append(newTel.text!)
+            model.localFriendsBirthday.append(newBirthday.text!)
             model.localFriendsPhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.localFriendsName, forKey: "LocalFriendsName")
             UserDefaults.standard.set(model.localFriendsBirthday, forKey: "LocalFriendsBirthday")
             UserDefaults.standard.set(model.localFriendsPhotos, forKey: "LocalFriendsPhotos")
         case .highSchoolFriendsSection:
             model.highSchoolFriendsName.append(newName.text!)
-            model.highSchoolFriendsBirthday.append(newTel.text!)
+            model.highSchoolFriendsBirthday.append(newBirthday.text!)
             model.highSchoolFriendsPhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.highSchoolFriendsName, forKey: "HighSchoolFriendsName")
             UserDefaults.standard.set(model.highSchoolFriendsBirthday, forKey: "HighSchoolFriendsBirthday")
             UserDefaults.standard.set(model.highSchoolFriendsPhotos, forKey: "HighSchoolFriendsPhotos")
         case .collegeFriendsSection:
             model.collegeFriendsName.append(newName.text!)
-            model.collegeFriendsBirthday.append(newTel.text!)
+            model.collegeFriendsBirthday.append(newBirthday.text!)
             model.collegeFriendsPhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.collegeFriendsName, forKey: "CollegeFriendsName")
             UserDefaults.standard.set(model.collegeFriendsBirthday, forKey: "CollegeFriendsBirthday")
             UserDefaults.standard.set(model.collegeFriendsPhotos, forKey: "CollegeFriendsPhotos")
         case .companyPeopleSection:
             model.companyPeopleName.append(newName.text!)
-            model.companyPeopleBirthday.append(newTel.text!)
+            model.companyPeopleBirthday.append(newBirthday.text!)
             model.companyPeoplePhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.companyPeopleName, forKey: "CompanyPeopleName")
             UserDefaults.standard.set(model.companyPeopleBirthday, forKey: "CompanyPeopleBirthday")
             UserDefaults.standard.set(model.companyPeoplePhotos, forKey: "CompanyPeoplePhotos")
         case .otherPeopleSection:
             model.otherPeopleName.append(newName.text!)
-            model.otherPeopleBirthday.append(newTel.text!)
+            model.otherPeopleBirthday.append(newBirthday.text!)
             model.otherPeoplePhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.otherPeopleName, forKey: "OtherPeopleName")
             UserDefaults.standard.set(model.otherPeopleBirthday, forKey: "OtherPeopleBirthday")
@@ -114,11 +114,11 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         }
         self.dismiss(animated: true, completion: {
             self.newName.text! = ""
-            self.newTel.text! = ""
+            self.newBirthday.text! = ""
         })
     }
     @objc func keyboardWillShow(notificaation: NSNotification) {
-        if !newTel.isFirstResponder {
+        if !newBirthday.isFirstResponder {
             return
         }
         if self.view.frame.origin.y == 0 {
@@ -204,12 +204,12 @@ extension ChildSettingViewController {
     }
 }
 extension ChildSettingViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ NewbestFriendName: UITextField) -> Bool {
-        NewbestFriendName.resignFirstResponder()
+    func textFieldShouldReturn(_ NewBestFriendName: UITextField) -> Bool {
+        NewBestFriendName.resignFirstResponder()
         return true
     }
-    func textFieldShouldReturn2(_ NewBfTel: UITextField) -> Bool {
-        NewBfTel.resignFirstResponder()
+    func textFieldShouldReturn2(_ NewBestFriendBirthday: UITextField) -> Bool {
+        NewBestFriendBirthday.resignFirstResponder()
         return true
     }
 }

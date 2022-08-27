@@ -12,8 +12,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     @IBOutlet weak var fsCalendar: FSCalendar!
     
-    let userData = UserDefaults.standard.stringArray(forKey: "Family2")
-    let userImage: [Any] = UserDefaults.standard.array(forKey: "Family3")!
+    let userData = UserDefaults.standard.stringArray(forKey: "FamilyBirthday")
+    let userImage: [Any] = UserDefaults.standard.array(forKey: "FamilyPhotos")!
     
     override func viewDidLoad() {
         super.viewDidLoad()

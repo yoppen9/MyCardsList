@@ -174,7 +174,7 @@
         <!--Child Setting View Controller-->
         <scene sceneID="Pnu-CQ-1wq">
             <objects>
-                <viewController storyboardIdentifier="next2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JfV-cq-fea" customClass="ChildSettingViewController" customModule="MyCardsList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChildSettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JfV-cq-fea" customClass="ChildSettingViewController" customModule="MyCardsList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ag7-Jm-0Fe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                 <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="25"/>
                                 <state key="normal" title="追加"/>
                                 <connections>
-                                    <action selector="NewBfButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="E2o-jB-bAN"/>
+                                    <action selector="NewBestFriendButton:" destination="JfV-cq-fea" eventType="touchUpInside" id="jrL-Qv-5je"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-xT-DQe">
@@ -236,9 +236,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="WJ0-Bu-D7x"/>
                     <connections>
+                        <outlet property="newBirthday" destination="O8D-aW-3wq" id="e8w-K5-vdL"/>
                         <outlet property="newImage" destination="l5s-MH-UA0" id="Ihb-XW-8sE"/>
                         <outlet property="newName" destination="k1Q-xT-DQe" id="cBr-fi-FiV"/>
-                        <outlet property="newTel" destination="O8D-aW-3wq" id="vsi-5O-BcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUy-Pc-FBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

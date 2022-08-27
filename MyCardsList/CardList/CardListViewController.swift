@@ -111,7 +111,7 @@ class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
         navHeight = self.navigationController?.navigationBar.frame.size.height
         
         let nib = UINib(nibName: "CollectionViewCell", bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "Cell1")
+        collectionView.register(nib, forCellWithReuseIdentifier: "CardCell")
         
         navigationItem.rightBarButtonItem = editButtonItem
         
@@ -122,19 +122,19 @@ class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     @IBAction func settingButton(_ sender: Any) {
-        let nextView2 = storyboard?.instantiateViewController(identifier: "next2") as! ChildSettingViewController
-        nextView2.presentationController?.delegate = self
-        nextView2.model = self.model
-        present(nextView2, animated: true, completion: nil)
+        let childSettingViewController = storyboard?.instantiateViewController(identifier: "ChildSettingViewController") as! ChildSettingViewController
+        childSettingViewController.presentationController?.delegate = self
+        childSettingViewController.model = self.model
+        present(childSettingViewController, animated: true, completion: nil)
     }
 }
 
 extension CardListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let nameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell1", for: indexPath) as! CollectionViewCell
-        let label = nameCell.contentView.viewWithTag(1) as! UILabel
-        let label2 = nameCell.contentView.viewWithTag(2) as! UILabel
-        let image3 = nameCell.contentView.viewWithTag(3) as! UIImageView
+        let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CollectionViewCell
+        let nameLabel = cardCell.contentView.viewWithTag(1) as! UILabel
+        let birthdayLabel = cardCell.contentView.viewWithTag(2) as! UILabel
+        let image = cardCell.contentView.viewWithTag(3) as! UIImageView
         
 //        nameCell.backgroundColor = UIColor.white
 //        nameCell.layer.cornerRadius = 12
@@ -146,33 +146,33 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
         
         switch model.section {
         case .familySection:
-            label.text = model.familyName[indexPath.row]
-            label2.text = model.familyBirthday[indexPath.row]
-            image3.image = UIImage(data: model.familyPhotos[indexPath.row])
+            nameLabel.text = model.familyName[indexPath.row]
+            birthdayLabel.text = model.familyBirthday[indexPath.row]
+            image.image = UIImage(data: model.familyPhotos[indexPath.row])
         case .bestFriendSection:
-            label.text = model.bestFriendName[indexPath.row]
-            label2.text = model.bestFriendBirthday[indexPath.row]
-            image3.image = UIImage(data: model.bestFriendPhotos[indexPath.row])
+            nameLabel.text = model.bestFriendName[indexPath.row]
+            birthdayLabel.text = model.bestFriendBirthday[indexPath.row]
+            image.image = UIImage(data: model.bestFriendPhotos[indexPath.row])
         case .localFriendsSection:
-            label.text = model.localFriendsName[indexPath.row]
-            label2.text = model.localFriendsBirthday[indexPath.row]
-            image3.image = UIImage(data: model.localFriendsPhotos[indexPath.row])
+            nameLabel.text = model.localFriendsName[indexPath.row]
+            birthdayLabel.text = model.localFriendsBirthday[indexPath.row]
+            image.image = UIImage(data: model.localFriendsPhotos[indexPath.row])
         case .highSchoolFriendsSection:
-            label.text = model.highSchoolFriendsName[indexPath.row]
-            label2.text = model.highSchoolFriendsBirthday[indexPath.row]
-            image3.image = UIImage(data: model.highSchoolFriendsPhotos[indexPath.row])
+            nameLabel.text = model.highSchoolFriendsName[indexPath.row]
+            birthdayLabel.text = model.highSchoolFriendsBirthday[indexPath.row]
+            image.image = UIImage(data: model.highSchoolFriendsPhotos[indexPath.row])
         case .collegeFriendsSection:
-            label.text = model.collegeFriendsName[indexPath.row]
-            label2.text = model.collegeFriendsBirthday[indexPath.row]
-            image3.image = UIImage(data: model.collegeFriendsPhotos[indexPath.row])
+            nameLabel.text = model.collegeFriendsName[indexPath.row]
+            birthdayLabel.text = model.collegeFriendsBirthday[indexPath.row]
+            image.image = UIImage(data: model.collegeFriendsPhotos[indexPath.row])
         case .companyPeopleSection:
-            label.text = model.companyPeopleName[indexPath.row]
-            label2.text = model.companyPeopleBirthday[indexPath.row]
-            image3.image = UIImage(data: model.companyPeoplePhotos[indexPath.row])
+            nameLabel.text = model.companyPeopleName[indexPath.row]
+            birthdayLabel.text = model.companyPeopleBirthday[indexPath.row]
+            image.image = UIImage(data: model.companyPeoplePhotos[indexPath.row])
         case .otherPeopleSection:
-            label.text = model.otherPeopleName[indexPath.row]
-            label2.text = model.otherPeopleBirthday[indexPath.row]
-            image3.image = UIImage(data: model.otherPeoplePhotos[indexPath.row])
+            nameLabel.text = model.otherPeopleName[indexPath.row]
+            birthdayLabel.text = model.otherPeopleBirthday[indexPath.row]
+            image.image = UIImage(data: model.otherPeoplePhotos[indexPath.row])
         }
         print(model.familyName)
         print(model.familyBirthday)
@@ -181,9 +181,9 @@ extension CardListViewController: UICollectionViewDataSource, UICollectionViewDe
         print(model.localFriendsBirthday)
         print(model.localFriendsPhotos)
         
-        nameCell.delegate = self
+        cardCell.delegate = self
         
-        return nameCell
+        return cardCell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
