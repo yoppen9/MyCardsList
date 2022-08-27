@@ -30,75 +30,75 @@ class CardListViewController: UIViewController, UIGestureRecognizerDelegate {
         switch model.section {
        
         case .familySection:
-            if(UserDefaults.standard.array(forKey: "Family1") != nil) {
-                model.familyName = UserDefaults.standard.array(forKey: "Family1") as! [String]
+            if(UserDefaults.standard.array(forKey: "FamilyName") != nil) {
+                model.familyName = UserDefaults.standard.array(forKey: "FamilyName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Family2") != nil) {
-                model.familyBirthday = UserDefaults.standard.array(forKey: "Family2") as! [String]
+            if(UserDefaults.standard.array(forKey: "FamilyBirthday") != nil) {
+                model.familyBirthday = UserDefaults.standard.array(forKey: "FamilyBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Family3") != nil) {
-                model.familyPhotos = UserDefaults.standard.array(forKey: "Family3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "FamilyPhotos") != nil) {
+                model.familyPhotos = UserDefaults.standard.array(forKey: "FamilyPhotos") as! [Data]
             }
         case .bestFriendSection:
-            if(UserDefaults.standard.array(forKey: "Bf1") != nil) {
-                model.bestFriendName = UserDefaults.standard.array(forKey: "Bf1") as! [String]
+            if(UserDefaults.standard.array(forKey: "BestFriendName") != nil) {
+                model.bestFriendName = UserDefaults.standard.array(forKey: "BestFriendName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Bf2") != nil) {
-                model.bestFriendBirthday = UserDefaults.standard.array(forKey: "Bf2") as! [String]
+            if(UserDefaults.standard.array(forKey: "BestFriendBirthday") != nil) {
+                model.bestFriendBirthday = UserDefaults.standard.array(forKey: "BestFriendBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Bf3") != nil) {
-                model.bestFriendPhotos = UserDefaults.standard.array(forKey: "Bf3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "BestFriendPhotos") != nil) {
+                model.bestFriendPhotos = UserDefaults.standard.array(forKey: "BestFriendPhotos") as! [Data]
             }
         case .localFriendsSection:
-            if(UserDefaults.standard.array(forKey: "Local1") != nil) {
-                model.localFriendsName = UserDefaults.standard.array(forKey: "Local1") as! [String]
+            if(UserDefaults.standard.array(forKey: "LocalFriendsName") != nil) {
+                model.localFriendsName = UserDefaults.standard.array(forKey: "LocalFriendsName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Local2") != nil) {
-                model.localFriendsBirthday = UserDefaults.standard.array(forKey: "Local2") as! [String]
+            if(UserDefaults.standard.array(forKey: "LocalFriendsBirthday") != nil) {
+                model.localFriendsBirthday = UserDefaults.standard.array(forKey: "LocalFriendsBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Local3") != nil) {
-                model.localFriendsPhotos = UserDefaults.standard.array(forKey: "Local3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "LocalFriendsPhotos") != nil) {
+                model.localFriendsPhotos = UserDefaults.standard.array(forKey: "LocalFriendsPhotos") as! [Data]
             }
             
         case .highSchoolFriendsSection:
-            if(UserDefaults.standard.array(forKey: "HighSchool1") != nil) {
-                model.highSchoolFriendsName = UserDefaults.standard.array(forKey: "HighSchool1") as! [String]
+            if(UserDefaults.standard.array(forKey: "HighSchoolFriendsName") != nil) {
+                model.highSchoolFriendsName = UserDefaults.standard.array(forKey: "HighSchoolFriendsName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "HighSchool2") != nil) {
-                model.highSchoolFriendsBirthday = UserDefaults.standard.array(forKey: "HighSchool2") as! [String]
+            if(UserDefaults.standard.array(forKey: "HighSchoolFriendsBirthday") != nil) {
+                model.highSchoolFriendsBirthday = UserDefaults.standard.array(forKey: "HighSchoolFriendsBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "HighSchool3") != nil) {
-                model.highSchoolFriendsPhotos = UserDefaults.standard.array(forKey: "HighSchool3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "HighSchoolFriendsPhotos") != nil) {
+                model.highSchoolFriendsPhotos = UserDefaults.standard.array(forKey: "HighSchoolFriendsPhotos") as! [Data]
             }
         case .collegeFriendsSection:
-            if(UserDefaults.standard.array(forKey: "College1") != nil) {
-                model.collegeFriendsName = UserDefaults.standard.array(forKey: "College1") as! [String]
+            if(UserDefaults.standard.array(forKey: "CollegeFriendsName") != nil) {
+                model.collegeFriendsName = UserDefaults.standard.array(forKey: "CollegeFriendsName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "College2") != nil) {
-                model.collegeFriendsBirthday = UserDefaults.standard.array(forKey: "College2") as! [String]
+            if(UserDefaults.standard.array(forKey: "CollegeFriendsBirthday") != nil) {
+                model.collegeFriendsBirthday = UserDefaults.standard.array(forKey: "CollegeFriendsBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "College3") != nil) {
-                model.collegeFriendsPhotos = UserDefaults.standard.array(forKey: "College3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "CollegeFriendsPhotos") != nil) {
+                model.collegeFriendsPhotos = UserDefaults.standard.array(forKey: "CollegeFriendsPhotos") as! [Data]
             }
         case .companyPeopleSection:
-            if(UserDefaults.standard.array(forKey: "Company1") != nil) {
-                model.companyPeopleName = UserDefaults.standard.array(forKey: "Company1") as! [String]
+            if(UserDefaults.standard.array(forKey: "CompanyPeopleName") != nil) {
+                model.companyPeopleName = UserDefaults.standard.array(forKey: "CompanyPeopleName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Company2") != nil) {
-                model.companyPeopleBirthday = UserDefaults.standard.array(forKey: "Company2") as! [String]
+            if(UserDefaults.standard.array(forKey: "CompanyPeopleBirthday") != nil) {
+                model.companyPeopleBirthday = UserDefaults.standard.array(forKey: "CompanyPeopleBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Company3") != nil) {
-                model.companyPeoplePhotos = UserDefaults.standard.array(forKey: "Company3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "CompanyPeoplePhotos") != nil) {
+                model.companyPeoplePhotos = UserDefaults.standard.array(forKey: "CompanyPeoplePhotos") as! [Data]
             }
         case .otherPeopleSection:
-            if(UserDefaults.standard.array(forKey: "Other1") != nil) {
-                model.otherPeopleName = UserDefaults.standard.array(forKey: "Other1") as! [String]
+            if(UserDefaults.standard.array(forKey: "OtherPeopleName") != nil) {
+                model.otherPeopleName = UserDefaults.standard.array(forKey: "OtherPeopleName") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Other2") != nil) {
-                model.otherPeopleBirthday = UserDefaults.standard.array(forKey: "Other2") as! [String]
+            if(UserDefaults.standard.array(forKey: "OtherPeopleBirthday") != nil) {
+                model.otherPeopleBirthday = UserDefaults.standard.array(forKey: "OtherPeopleBirthday") as! [String]
             }
-            if(UserDefaults.standard.array(forKey: "Other3") != nil) {
-                model.otherPeoplePhotos = UserDefaults.standard.array(forKey: "Other3") as! [Data]
+            if(UserDefaults.standard.array(forKey: "OtherPeoplePhotos") != nil) {
+                model.otherPeoplePhotos = UserDefaults.standard.array(forKey: "OtherPeoplePhotos") as! [Data]
             }
         }
     }
@@ -282,33 +282,33 @@ extension CardListViewController: CollectionViewCellDelegate {
         }
         switch model.section {
         case .familySection:
-            UserDefaults.standard.set(model.familyName, forKey: "Family1")
-            UserDefaults.standard.set(model.familyBirthday, forKey: "Family2")
-            UserDefaults.standard.set(model.familyPhotos, forKey: "Family3")
+            UserDefaults.standard.set(model.familyName, forKey: "FamilyName")
+            UserDefaults.standard.set(model.familyBirthday, forKey: "FamilyBirthday")
+            UserDefaults.standard.set(model.familyPhotos, forKey: "FamilyPhotos")
         case .bestFriendSection:
-            UserDefaults.standard.set(model.bestFriendName, forKey: "Bf1")
-            UserDefaults.standard.set(model.bestFriendBirthday, forKey: "Bf2")
-            UserDefaults.standard.set(model.bestFriendPhotos, forKey: "Bf3")
+            UserDefaults.standard.set(model.bestFriendName, forKey: "BestFriendName")
+            UserDefaults.standard.set(model.bestFriendBirthday, forKey: "BestFriendBirthday")
+            UserDefaults.standard.set(model.bestFriendPhotos, forKey: "BestFriendPhotos")
         case .localFriendsSection:
-            UserDefaults.standard.set(model.localFriendsName, forKey: "Local1")
-            UserDefaults.standard.set(model.localFriendsBirthday, forKey: "Local2")
-            UserDefaults.standard.set(model.localFriendsPhotos, forKey: "Local3")
+            UserDefaults.standard.set(model.localFriendsName, forKey: "LocalFriendsName")
+            UserDefaults.standard.set(model.localFriendsBirthday, forKey: "LocalFriendsBirthday")
+            UserDefaults.standard.set(model.localFriendsPhotos, forKey: "LocalFriendsPhotos")
         case .highSchoolFriendsSection:
-            UserDefaults.standard.set(model.highSchoolFriendsName, forKey: "HighSchool1")
-            UserDefaults.standard.set(model.highSchoolFriendsBirthday, forKey: "HighSchool2")
-            UserDefaults.standard.set(model.highSchoolFriendsPhotos, forKey: "HighSchool3")
+            UserDefaults.standard.set(model.highSchoolFriendsName, forKey: "HighSchoolFriendsName")
+            UserDefaults.standard.set(model.highSchoolFriendsBirthday, forKey: "HighSchoolFriendsBirthday")
+            UserDefaults.standard.set(model.highSchoolFriendsPhotos, forKey: "HighSchoolFriendsPhotos")
         case .collegeFriendsSection:
-            UserDefaults.standard.set(model.collegeFriendsName, forKey: "College1")
-            UserDefaults.standard.set(model.collegeFriendsBirthday, forKey: "College2")
-            UserDefaults.standard.set(model.collegeFriendsPhotos, forKey: "College3")
+            UserDefaults.standard.set(model.collegeFriendsName, forKey: "CollegeFriendsName")
+            UserDefaults.standard.set(model.collegeFriendsBirthday, forKey: "CollegeFriendsBirthday")
+            UserDefaults.standard.set(model.collegeFriendsPhotos, forKey: "CollegeFriendsPhotos")
         case .companyPeopleSection:
-            UserDefaults.standard.set(model.companyPeopleName, forKey: "Company1")
-            UserDefaults.standard.set(model.companyPeopleBirthday, forKey: "Company2")
-            UserDefaults.standard.set(model.companyPeoplePhotos, forKey: "Company3")
+            UserDefaults.standard.set(model.companyPeopleName, forKey: "CompanyPeopleName")
+            UserDefaults.standard.set(model.companyPeopleBirthday, forKey: "CompanyPeopleBirthday")
+            UserDefaults.standard.set(model.companyPeoplePhotos, forKey: "CompanyPeoplePhotos")
         case .otherPeopleSection:
-            UserDefaults.standard.set(model.otherPeopleName, forKey: "Other1")
-            UserDefaults.standard.set(model.otherPeopleBirthday, forKey: "Other2")
-            UserDefaults.standard.set(model.otherPeoplePhotos, forKey: "Other3")
+            UserDefaults.standard.set(model.otherPeopleName, forKey: "OtherPeopleName")
+            UserDefaults.standard.set(model.otherPeopleBirthday, forKey: "OtherPeopleBirthday")
+            UserDefaults.standard.set(model.otherPeoplePhotos, forKey: "OtherPeoplePhotos")
         }
         print(model.familyName)
         print(model.familyBirthday)
