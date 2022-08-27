@@ -64,53 +64,53 @@ class ChildSettingViewController: UIViewController, UINavigationControllerDelega
         switch self.model.section {
         case .familySection:
             model.familyName.append(newName.text!)
-            model.familyPhone.append(newTel.text!)
+            model.familyBirthday.append(newTel.text!)
             model.familyPhotos.append(selectedImageData!)
             UserDefaults.standard.set(model.familyName, forKey: "Family1")
-            UserDefaults.standard.set(model.familyPhone, forKey: "Family2")
+            UserDefaults.standard.set(model.familyBirthday, forKey: "Family2")
             UserDefaults.standard.set(model.familyPhotos, forKey: "Family3")
-        case .bfSection:
-            model.bfName.append(newName.text!)
-            model.bfPhone.append(newTel.text!)
-            model.bfPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.bfName, forKey: "Bf1")
-            UserDefaults.standard.set(model.bfPhone, forKey: "Bf2")
-            UserDefaults.standard.set(model.bfPhotos, forKey: "Bf3")
-        case .localSection:
-            model.localName.append(newName.text!)
-            model.localPhone.append(newTel.text!)
-            model.localPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.localName, forKey: "Local1")
-            UserDefaults.standard.set(model.localPhone, forKey: "Local2")
-            UserDefaults.standard.set(model.localPhotos, forKey: "Local3")
-        case .highSchoolSection:
-            model.highSchoolName.append(newName.text!)
-            model.highSchoolPhone.append(newTel.text!)
-            model.highSchoolPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.highSchoolName, forKey: "HighSchool1")
-            UserDefaults.standard.set(model.highSchoolPhone, forKey: "HighSchool2")
-            UserDefaults.standard.set(model.highSchoolPhotos, forKey: "HighSchool3")
-        case .collegeSection:
-            model.collegeName.append(newName.text!)
-            model.collegePhone.append(newTel.text!)
-            model.collegePhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.collegeName, forKey: "College1")
-            UserDefaults.standard.set(model.collegePhone, forKey: "College2")
-            UserDefaults.standard.set(model.collegePhotos, forKey: "College3")
-        case .companySection:
-            model.companyName.append(newName.text!)
-            model.companyPhone.append(newTel.text!)
-            model.companyPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.companyName, forKey: "Company1")
-            UserDefaults.standard.set(model.companyPhone, forKey: "Company2")
-            UserDefaults.standard.set(model.companyPhotos, forKey: "Company3")
-        case .otherSection:
-            model.otherName.append(newName.text!)
-            model.otherPhone.append(newTel.text!)
-            model.otherPhotos.append(selectedImageData!)
-            UserDefaults.standard.set(model.otherName, forKey: "Other1")
-            UserDefaults.standard.set(model.otherPhone, forKey: "Other2")
-            UserDefaults.standard.set(model.otherPhotos, forKey: "Other3")
+        case .bestFriendSection:
+            model.bestFriendName.append(newName.text!)
+            model.bestFriendBirthday.append(newTel.text!)
+            model.bestFriendPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.bestFriendName, forKey: "Bf1")
+            UserDefaults.standard.set(model.bestFriendBirthday, forKey: "Bf2")
+            UserDefaults.standard.set(model.bestFriendPhotos, forKey: "Bf3")
+        case .localFriendsSection:
+            model.localFriendsName.append(newName.text!)
+            model.localFriendsBirthday.append(newTel.text!)
+            model.localFriendsPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.localFriendsName, forKey: "Local1")
+            UserDefaults.standard.set(model.localFriendsBirthday, forKey: "Local2")
+            UserDefaults.standard.set(model.localFriendsPhotos, forKey: "Local3")
+        case .highSchoolFriendsSection:
+            model.highSchoolFriendsName.append(newName.text!)
+            model.highSchoolFriendsBirthday.append(newTel.text!)
+            model.highSchoolFriendsPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.highSchoolFriendsName, forKey: "HighSchool1")
+            UserDefaults.standard.set(model.highSchoolFriendsBirthday, forKey: "HighSchool2")
+            UserDefaults.standard.set(model.highSchoolFriendsPhotos, forKey: "HighSchool3")
+        case .collegeFriendsSection:
+            model.collegeFriendsName.append(newName.text!)
+            model.collegeFriendsBirthday.append(newTel.text!)
+            model.collegeFriendsPhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.collegeFriendsName, forKey: "College1")
+            UserDefaults.standard.set(model.collegeFriendsBirthday, forKey: "College2")
+            UserDefaults.standard.set(model.collegeFriendsPhotos, forKey: "College3")
+        case .companyPeopleSection:
+            model.companyPeopleName.append(newName.text!)
+            model.companyPeopleBirthday.append(newTel.text!)
+            model.companyPeoplePhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.companyPeopleName, forKey: "Company1")
+            UserDefaults.standard.set(model.companyPeopleBirthday, forKey: "Company2")
+            UserDefaults.standard.set(model.companyPeoplePhotos, forKey: "Company3")
+        case .otherPeopleSection:
+            model.otherPeopleName.append(newName.text!)
+            model.otherPeopleBirthday.append(newTel.text!)
+            model.otherPeoplePhotos.append(selectedImageData!)
+            UserDefaults.standard.set(model.otherPeopleName, forKey: "Other1")
+            UserDefaults.standard.set(model.otherPeopleBirthday, forKey: "Other2")
+            UserDefaults.standard.set(model.otherPeoplePhotos, forKey: "Other3")
         }
         self.dismiss(animated: true, completion: {
             self.newName.text! = ""
@@ -204,8 +204,8 @@ extension ChildSettingViewController {
     }
 }
 extension ChildSettingViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ NewBfName: UITextField) -> Bool {
-        NewBfName.resignFirstResponder()
+    func textFieldShouldReturn(_ NewbestFriendName: UITextField) -> Bool {
+        NewbestFriendName.resignFirstResponder()
         return true
     }
     func textFieldShouldReturn2(_ NewBfTel: UITextField) -> Bool {

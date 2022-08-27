@@ -105,27 +105,27 @@ class TitleCollectionViewController: UIViewController, UICollectionViewDataSourc
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         case "親友":
             model.sectionTitle = "親友"
-            model.section = .bfSection
+            model.section = .bestFriendSection
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         case "地元友達":
             model.sectionTitle = "地元友達"
-            model.section = .localSection
+            model.section = .localFriendsSection
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         case "高校友達":
             model.sectionTitle = "高校友達"
-            model.section = .highSchoolSection
+            model.section = .highSchoolFriendsSection
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         case "大学友達":
             model.sectionTitle = "大学"
-            model.section = .collegeSection
+            model.section = .collegeFriendsSection
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         case "会社":
             model.sectionTitle = "会社"
-            model.section = .companySection
+            model.section = .companyPeopleSection
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         case "その他":
             model.sectionTitle = "その他"
-            model.section = .otherSection
+            model.section = .otherPeopleSection
             self.performSegue(withIdentifier: "showCardsList", sender: nil)
         default:
             return

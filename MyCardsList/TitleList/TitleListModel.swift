@@ -9,12 +9,12 @@ import Foundation
 
 enum Section {
     case familySection
-    case bfSection
-    case localSection
-    case highSchoolSection
-    case collegeSection
-    case companySection
-    case otherSection
+    case bestFriendSection
+    case localFriendsSection
+    case highSchoolFriendsSection
+    case collegeFriendsSection
+    case companyPeopleSection
+    case otherPeopleSection
 }
 
 class TitleListModel {
@@ -23,30 +23,30 @@ class TitleListModel {
     let cardsList = ["家族","親友","地元友達","高校友達","大学友達","会社","その他"]
     
     var familyName: [String] = []
-    var familyPhone: [String] = []
+    var familyBirthday: [String] = []
     var familyPhotos: [Data] = []
     
-    var bfName: [String] = []
-    var bfPhone: [String] = []
-    var bfPhotos: [Data] = []
+    var bestFriendName: [String] = []
+    var bestFriendBirthday: [String] = []
+    var bestFriendPhotos: [Data] = []
     
-    var localName: [String] = []
-    var localPhone: [String] = []
-    var localPhotos: [Data] = []
+    var localFriendsName: [String] = []
+    var localFriendsBirthday: [String] = []
+    var localFriendsPhotos: [Data] = []
     
-    var highSchoolName: [String] = []
-    var highSchoolPhone: [String] = []
-    var highSchoolPhotos: [Data] = []
+    var highSchoolFriendsName: [String] = []
+    var highSchoolFriendsBirthday: [String] = []
+    var highSchoolFriendsPhotos: [Data] = []
 
-    var collegeName: [String] = []
-    var collegePhone: [String] = []
-    var collegePhotos: [Data] = []
+    var collegeFriendsName: [String] = []
+    var collegeFriendsBirthday: [String] = []
+    var collegeFriendsPhotos: [Data] = []
     
-    var companyName: [String] = []
-    var companyPhone: [String] = []
-    var companyPhotos: [Data] = []
+    var companyPeopleName: [String] = []
+    var companyPeopleBirthday: [String] = []
+    var companyPeoplePhotos: [Data] = []
     
-    var otherName: [String] = []
-    var otherPhone: [String] = []
-    var otherPhotos: [Data] = []
+    var otherPeopleName: [String] = []
+    var otherPeopleBirthday: [String] = []
+    var otherPeoplePhotos: [Data] = []
 }
